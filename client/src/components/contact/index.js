@@ -69,13 +69,13 @@ class Contact extends React.Component {
 
       return (
         <Modal show={true}
-          onHide={() => history.push('/shop')}
+          onHide={() => history.push('/')}
           aria-labelledby="contained-modal-title-vcenter"
           centered
           >
           <Modal.Header closeButton>
             <Modal.Title>
-              Contact Us
+              Say Or Ask Us Anything
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>

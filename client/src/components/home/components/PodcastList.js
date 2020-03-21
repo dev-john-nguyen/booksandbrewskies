@@ -13,7 +13,7 @@ class PodcastList extends React.Component {
   render() {
     const titleStyle = {
       borderBottom: "2px solid #fff",
-      width: "50%",
+      maxWidth: "500px",
       margin: "auto",
       padding: "10px"
     }

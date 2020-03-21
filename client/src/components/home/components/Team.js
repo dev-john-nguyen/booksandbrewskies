@@ -5,7 +5,7 @@ import Shane from '../../images/team/Shane.jpg'
 const Team = () => {
   const titleStyle = {
     borderBottom: "2px solid #fff",
-    width: "50%",
+    maxWidth: "500px",
     margin: "auto",
     padding: "10px"
   }

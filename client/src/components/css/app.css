@@ -23,13 +23,6 @@ a:hover {
  * Base structure
  */
 
-/* html,
-body {
-  height: 100%;
-  background: url("../images/home/home-background-img.jpg");
-  background-size:cover;
-  overflow: auto;
-} */
 .jumbotron {
   background: none;
   margin-top: 10%;
@@ -83,6 +76,9 @@ body {
   background-attachment: fixed;
   font-family: courier !important;
   color: #fff;
+  -o-background-size: cover;
+ -moz-background-size: cover;
+ -webkit-background-size: cover;
 }
 
 .cover-container {

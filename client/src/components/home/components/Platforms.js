@@ -23,7 +23,7 @@ const Platforms = () => {
             <div className="card-body">
               <h4 className="card-text">Youtube</h4>
               <div className="justify-content-between align-items-center">
-                  <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" className="btn btn-primary btn-block mt-4">Listen</a>
+                  <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block mt-4">Listen</a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Platforms = () => {
             <div className="card-body">
               <h4 className="card-text">Apple</h4>
               <div className="d-flex justify-content-between align-items-center">
-              <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" className="btn btn-primary btn-block mt-4">Listen</a>
+              <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block mt-4">Listen</a>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@ const Platforms = () => {
             <div className="card-body">
               <h4 className="card-text">Spotify</h4>
               <div className="d-flex justify-content-between align-items-center">
-              <a href="https://open.spotify.com/show/3l2lcEnwFkuByHpp19WAH6" target="_blank" className="btn btn-primary btn-block mt-4">Listen</a>
+              <a href="https://open.spotify.com/show/3l2lcEnwFkuByHpp19WAH6" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block mt-4">Listen</a>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Platforms = () => {
             <div className="card-body">
               <h4 className="card-text">Anchor</h4>
               <div className="d-flex justify-content-between align-items-center">
-              <a href="https://anchor.fm/books--brewskies" target="_blank" className="btn btn-primary btn-block mt-4">Listen</a>
+              <a href="https://anchor.fm/books--brewskies" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block mt-4">Listen</a>
               </div>
             </div>
           </div>

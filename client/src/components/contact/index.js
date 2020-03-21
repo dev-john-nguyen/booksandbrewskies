@@ -51,9 +51,7 @@ class Contact extends React.Component {
     }
 
     if(success){
-      const descriptionOrderCompleted = `We look forward to meeting you. In the meantime, check out
-      our store for some cool stuff like customized Beers & Brewskies Coasters!
-      We will be in touch with you soon!`;
+      const descriptionOrderCompleted = `We will get back to you as soon as possible!`;
 
       return(
         <Mymodal

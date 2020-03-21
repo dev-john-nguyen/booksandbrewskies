@@ -15,8 +15,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="container-fluid home-header">
-    <div className="row align-items-center">
+    <div className="row align-items-center header-title">
     <div className="col align-self-center">
       <h1 className="display-4 font-weight-normal">Books & Brewskies</h1>
       <p className="lead font-weight-normal">Created by the men, for the boys.</p>
@@ -27,9 +26,8 @@ const Home = () => {
       </div>
     </div>
     </div>
-    </div>
     <div ref={myRef} style={{height: "20px"}} />
-    <div className="container home-context rounded mb-5">
+    <div className="container home-context rounded">
       <Team />
       <Platforms />
       <CoolStuff />

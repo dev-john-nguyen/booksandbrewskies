@@ -6,6 +6,7 @@ import NotFoundPage from './NotFoundPage';
 import Contact from './contact/';
 import Home from './home';
 import CheckoutForm from './shop/components/checkout';
+import BackgroundImage from './images/home/studio.jpg';
 
 import {withRouter} from 'react-router'
 import './css/app.css';
@@ -15,7 +16,8 @@ const App = ({location}) => {
   return (
     <>
         <Header />
-        <div style={{minHeight: "100vh"}}>
+        <img src={BackgroundImage} className="img-fluid position-sticky vh-100 w-100" alt="background" style={{top: "0px", zIndex: "-1"}}/>
+        <div className="mb-5" style={{minHeight: "100vh"}}>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/contact" exact component={Contact} />
@@ -23,7 +25,6 @@ const App = ({location}) => {
           </Switch>
         </div>
           <Footer />
-
         </>
   );
 };

@@ -10,7 +10,7 @@ const CoolStuff = () => {
   }
   return(
     <>
-    <div className="cool-stuff pt-4">
+    <div className="cool-stuff pt-4 pb-5">
       <h1 style={titleStyle}>Beer Of The Week</h1>
     <div className="row pt-5">
       <div className="col-md-6 offset-md-3">

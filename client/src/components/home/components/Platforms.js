@@ -22,7 +22,7 @@ const Platforms = () => {
           <img src={Youtube}  className="bd-placeholder-img card-img-top" width="100%" height="130px" alt="youtube"/>
             <div className="card-body">
               <h4 className="card-text">Youtube</h4>
-              <div className="justify-content-between align-items-center">
+              <div className="d-flex justify-content-between align-items-center">
                   <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block mt-4">Listen</a>
               </div>
             </div>

@@ -16,7 +16,16 @@ const App = ({location}) => {
   return (
     <>
         <Header />
-        <img src={BackgroundImage} className="img-fluid position-sticky vh-100 w-100" alt="background" style={{top: "0px", zIndex: "-1"}}/>
+        <img src={BackgroundImage} className="img-fluid position-fixed vh-100 w-100" alt="background" style={
+          {
+          top: "0px",
+          zIndex: "-1",
+          position: "fixed",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          maxWidth: "1400px"
+        }
+        }/>
         <div className="mb-5" style={{minHeight: "100vh"}}>
           <Switch>
             <Route path="/" exact component={Home} />

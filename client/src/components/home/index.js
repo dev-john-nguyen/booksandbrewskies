@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="row align-items-center header-title">
+    <div className="row align-items-center vh-100">
     <div className="col align-self-center">
       <h1 className="display-4 font-weight-normal">Books & Brewskies</h1>
       <p className="lead font-weight-normal">Created by the men, for the boys.</p>

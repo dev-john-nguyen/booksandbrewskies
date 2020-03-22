@@ -61,13 +61,6 @@ a:hover {
   height: 100vh;
 }
 
-.header-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .home-context {
   background-color: black;
   opacity: .9;

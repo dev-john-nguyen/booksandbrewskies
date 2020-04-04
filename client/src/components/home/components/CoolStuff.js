@@ -1,31 +1,30 @@
 import React from 'react';
 import CoorsLight from '../../images/beers/CoorsLight.jpg';
-
 const CoolStuff = () => {
   const titleStyle = {
-    borderBottom: "2px solid #fff",
+    borderBottom: "2px solid #332212",
     maxWidth: "500px",
     margin: "auto",
     padding: "10px"
   }
-  return(
-    <>
-    <div className="cool-stuff pt-4 pb-5">
-      <h1 style={titleStyle}>Beer Of The Week</h1>
-    <div className="row pt-5">
-      <div className="col-md-6 offset-md-3">
-          <div className="media">
-          <img className="mr-3 rounded m-auto" src={CoorsLight} height="200px" width="200px" alt="Smalls"/>
-        <div className="media-body pl-5">
-          <h5 className="mt-0 font-weight-bold">Coors Light</h5>
-          This Beer is the best beer around. It truly hits the ballz sack when you take a ship. I just want to ram everything
-          from behind.
+  return (
+    <div className="pt-6 pb-6 text-center special-events" style={{color: '#332212', backgroundColor: '#fff'}}>
+      <h1 style={titleStyle}>Special Events</h1>
+      <div className="row mt-6">
+        <div className="col">
+          <h2>Book Of The Month</h2>
+          <img src={CoorsLight} />
+          <h3>Books & Brewskies Coasters</h3>
+          <p>$20</p>
+        </div>
+        <div className="col">
+          <h2>Beer Of The Week</h2>
+          <img src={CoorsLight} />
+          <h3>Books & Brewskies Coasters</h3>
+          <p>$20</p>
         </div>
       </div>
-      </div>
     </div>
-    </div>
-    </>
   )
 }
 

@@ -1,41 +1,62 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Team from './components/Team';
-import PodcastList from './components/PodcastList';
 import CoolStuff from './components/CoolStuff';
 import Platforms from './components/Platforms';
+import Store from './components/Store';
 
-const scrollToRef = (ref) => window.scrollTo({
-  left: 0,
-  top: ref.current.offsetTop,
-  behavior: 'smooth'
-});
+var Scroll = require('react-scroll');
+var Element = Scroll.Element;
 
-const Home = () => {
-  const myRef = useRef(null);
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
 
-  return (
-    <>
-      <div className="row align-items-center vh-100">
-        <div className="col align-self-center">
-          <h1 className="display-4 font-weight-normal">Books & Brewskies</h1>
-          <p className="lead font-weight-normal">Created by the men, for the boys.</p>
-          <iframe title="podcast-1" className="mb-4 w-auto" src="https://anchor.fm/books--brewskies/embed/episodes/Episode-9-Markus-Miller-Quarantine-Life-ebpu9t/a-a1bvsum" height="102px" width="400px" frameBorder="0" scrolling="no"></iframe>
-          <div onClick={() => scrollToRef(myRef)}>
-            <svg className="bi bi-chevron-down" width="6em" height="6em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clipRule="evenodd"></path>
-            </svg>
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
+
+
+  render() {
+    console.log(this.state.height, this.state.width);
+
+    return (
+      <>
+        <div className="row align-items-center vh-100 text-center">
+          <div className="col align-self-center">
+            <h1 className="display-4 font-weight-normal header-text title">Books & Brewskies</h1>
+            <p className="lead font-weight-normal sub-text sub-title">Created by the men, for the boys.</p>
+            <iframe title="podcast-1" className="mb-4 w-auto" src="https://anchor.fm/books--brewskies/embed/episodes/Episode-9-Markus-Miller-Quarantine-Life-ebpu9t/a-a1bvsum" height="102px" width="400px" frameBorder="0" scrolling="no"></iframe>
+            <div>
+              <svg className="bi bi-chevron-down" width="6em" height="6em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clipRule="evenodd"></path>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-      <div ref={myRef} style={{ height: "20px" }} />
-      <div className="container home-context rounded">
-        <Team />
-        <PodcastList />
+        <div style={{maxWidth: '2000px', margin: 'auto', boxShadow: '0 1px 1rem 1px #eee'}}>
+        <Store />
         <Platforms />
         <CoolStuff />
-      </div>
-    </>
-  )
+        <Element name="Team">
+        <Team height={this.state.height} width={this.state.width} />
+        </Element>
+        </div>
+      </>
+    )
+  }
 }
 
 export default Home;

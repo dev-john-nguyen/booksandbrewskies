@@ -8,10 +8,14 @@ import './css/modal.css';
 const MyModal = ( props ) => {
     const [show, setShow] = useState(props.showValue);
 
-    console.log(props);
     const handleClose = () => {
       setShow(false);
-      history.push('/');
+
+      if(props.svgType === "success"){
+        window.location.replace('/')
+      }else{
+        history.push('/');
+      }
     }
 
     const handleButton = () => {
@@ -20,7 +24,13 @@ const MyModal = ( props ) => {
       }
 
       setShow(false);
-      history.push(props.closeDirect);
+
+      if(props.svgType === "success"){
+        window.location.replace('/')
+      }else{
+        history.push(props.closeDirect);
+      }
+      
     }
 
     let svg;
@@ -68,7 +78,7 @@ const MyModal = ( props ) => {
           onHide={handleClose}
           aria-labelledby="contained-modal-title-vcenter"
           centered
-          dialogClassName={"contactModal"}
+          dialogClassName={"contactModal text-center"}
           >
           <Modal.Header closeButton>
             <Modal.Title>

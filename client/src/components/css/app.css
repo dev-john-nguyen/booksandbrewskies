@@ -2,7 +2,7 @@
 
 
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
   color: #fff;
   background-color: #fff;
   min-height: 100vh;
@@ -33,7 +33,7 @@ a:hover {
 }
 
 .row{
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -53,19 +53,13 @@ a:hover {
   padding-top: 6rem !important;
 }
 
-.title {
+.header-title {
   font-size: 4.5rem;
+  font-family: 'Abril Fatface', cursive;
 }
 
-.sub-title {
-  font-size: 1.5rem;
-}
-
-.header {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.sub-text {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.title {
+  font-family: 'Abril Fatface', cursive;
 }
 
 /* Custom default button */

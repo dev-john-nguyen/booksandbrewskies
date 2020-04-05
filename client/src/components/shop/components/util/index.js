@@ -14,8 +14,10 @@ export const getSessionStorageUpdateCart = (cartProducts, cartTotal) => {
         if(cartProductsLs.length > 0){
           Object.assign(cartProducts, cartProductsLs);
           Object.assign(cartTotal, cartTotalLs);
+          return true;
         }
     }
+    return false;
 }
 
 export const updateSessionStorage = (cartProducts, cartTotal) => {

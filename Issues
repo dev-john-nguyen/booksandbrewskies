@@ -1,0 +1,8 @@
+Problems
+    - On Complete Purchase, I was having a problem with an empty object being inserted to 
+    Products Array after Clear the Session Storage and Reseting Redux Cart Products and Cart Total
+        - Component
+            - Floatcart
+            - Checkout
+    * Work Around - Redirected To Home Page forcing the page to refresh to refresh session and redux *
+    

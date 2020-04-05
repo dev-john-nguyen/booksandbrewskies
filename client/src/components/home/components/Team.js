@@ -3,7 +3,7 @@ import Christian from '../../images/team/Christian.png';
 import Shane from '../../images/team/Shane.png';
 import John from '../../images/team/John-Nguyen.png';
 
-const Team = ({ height, width }) => {
+const Team = () => {
   const titleStyle = {
     borderBottom: "2px solid #fff",
     maxWidth: "500px",
@@ -16,7 +16,7 @@ const Team = ({ height, width }) => {
     <>
       <div className="text-center pt-6 pb-6" id="team">
 
-        <h1 className="mb-6" style={titleStyle}>Meet Your Host</h1>
+        <h1 className="mb-6 title" style={titleStyle}>Meet Your Host</h1>
 
         <div className="row">
         <div className="col-sm-4">

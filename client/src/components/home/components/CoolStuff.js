@@ -9,19 +9,17 @@ const CoolStuff = () => {
   }
   return (
     <div className="pt-6 pb-6 text-center special-events" style={{color: '#332212', backgroundColor: '#fff'}}>
-      <h1 style={titleStyle}>Special Events</h1>
+      <h1 className="title" style={titleStyle}>Special Events</h1>
       <div className="row mt-6">
         <div className="col">
           <h2>Book Of The Month</h2>
           <img src={CoorsLight} />
           <h3>Books & Brewskies Coasters</h3>
-          <p>$20</p>
         </div>
         <div className="col">
           <h2>Beer Of The Week</h2>
           <img src={CoorsLight} />
           <h3>Books & Brewskies Coasters</h3>
-          <p>$20</p>
         </div>
       </div>
     </div>

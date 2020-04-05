@@ -27,7 +27,6 @@ export const changeProductQuantity = product => ({
 
 export const clearCart = () => dispatch => {
   dispatch({
-  type: CLEAR_CART,
-  payload: {}
+  type: CLEAR_CART
   })
 };

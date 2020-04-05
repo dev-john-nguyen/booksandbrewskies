@@ -25,15 +25,20 @@ class FloatCart extends Component {
      super(props);
 
      const {cartProducts, cartTotal} = props;
-     getSessionStorageUpdateCart(cartProducts, cartTotal);
-   }
+     const sessionStorage = getSessionStorageUpdateCart(cartProducts, cartTotal);
+     let isOpenInit = false;
 
-   state = {
-     newProduct: this.props.newProduct,
-     productToChange: this.props.productToChange,
-     productToRemove: this.props.productToRemove,
-     isOpen: false
-   };
+     if(sessionStorage){
+      isOpenInit = true;
+     }
+
+     this.state = {
+      newProduct: this.props.newProduct,
+      productToChange: this.props.productToChange,
+      productToRemove: this.props.productToRemove,
+      isOpen: isOpenInit
+    };
+   }
 
    static getDerivedStateFromProps(nextProps, prevState) {
 
@@ -68,12 +73,6 @@ class FloatCart extends Component {
      updateSessionStorage(cartProducts, cartTotal);
 
    }
-
-   // componentDidMount() {
-   //   const {cartProducts, cartTotal} = this.props;
-   //   getSessionStorageUpdateCart(cartProducts, cartTotal);
-   //   console.log("Did Mount");
-   // }
 
   openFloatCart = () => {
     this.setState({ isOpen: true });
@@ -189,7 +188,7 @@ class FloatCart extends Component {
                 )}`}
               </p>
             </div>
-            <Link to="/shop/checkout" className="buy-btn" onClick={this.openFloatCart}>Checkout</Link>
+            <Link to="/store/checkout" className="btn btn-primary" onClick={this.openFloatCart}>Checkout</Link>
           </div>
         </div>
       </div>

@@ -71,6 +71,7 @@
     &__title {
       position: relative;
       margin-top: 1rem;
+      min-height: 50px;
 
       // &::before {
       //   content: '';
@@ -107,5 +108,17 @@
 
       transition: background-color 0.2s;
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .shelf-container .shelf-item {
+    width: 33.333%;
+  }
+}
+
+@media screen and (max-width: 640px){
+  .shelf-container .shelf-item {
+    width: 50%;
   }
 }

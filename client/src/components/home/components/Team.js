@@ -22,7 +22,7 @@ const Team = () => {
     <>
       <div className="text-center pt-6 pb-6" id="team">
 
-        <h1 className="mb-6 title" style={titleStyle}>Meet The Host</h1>
+        <h1 className="mb-6" style={titleStyle}>Meet The Host</h1>
 
         <div className="row m-auto">
         <div className="col">

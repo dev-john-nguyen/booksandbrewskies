@@ -10,20 +10,20 @@ const Platforms = () => {
       <div className="platforms">
         <div className="row m-auto" style={{ marginTop: "3rem" }}>
           <div className="col">
-            <h1 className="title text-white mb-5 ml-auto mr-auto" style={{ width: '80%' }}>"You may never know what results come of your actions,
+            <h1 className="text-white mb-5 ml-auto mr-auto" style={{ width: '80%' }}>"You may never know what results come of your actions,
           but if you do nothing, there will be no results."</h1>
-            <a className="mr-3" href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer">
               <img className="podcast-icons" src={Youtube} aria-label="youtube" alt="youtube" />
             </a>
-            <a className="mr-3" href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
+            <a href="https://anchor.fm/books--brewskies" target="_blank" rel="noopener noreferrer">
               <img className="podcast-icons" src={Anchor} aria-label="anchor" alt="anchor" />
             </a>
 
-            <a className="mr-3" href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
+            <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
               <img className="podcast-icons" src={Apple} aria-label="apple" alt="apple" />
             </a>
 
-            <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
+            <a href="https://open.spotify.com/show/3l2lcEnwFkuByHpp19WAH6" target="_blank" rel="noopener noreferrer">
               <img className="podcast-icons" src={Spotify} aria-label="spotify" alt="spotify" />
             </a>
           </div>

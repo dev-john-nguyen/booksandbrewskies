@@ -13,7 +13,7 @@ const Store = () => {
     return (
         <>
             <div className="pt-6 pb-6 text-center" id="store" style={{color: '#332212', backgroundColor: '#fff'}}>
-                <h1 className="title" style={titleStyle}>Featured Products</h1>
+                <h1 style={titleStyle}>Featured Products</h1>
                 <div className="row m-auto mt-6">
                     <div className="col">
                         <img src={Logo} alt="product" />

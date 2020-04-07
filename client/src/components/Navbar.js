@@ -53,7 +53,7 @@ const Header = ({ location }) => {
     <nav className="site-header sticky-top py-1" style={{ backgroundColor: "#130f0a", opacity: "0.9" }}>
       <div className="container d-flex flex-md-row justify-content-between" style={{ maxWidth: "1000px" }}>
         <LinkRouter to='/' className="py-2" aria-label="Home"><img src={Logo} alt="logo" height="50px" width="50px" /></LinkRouter>
-        {location.pathname === "/store" && <LinkRouter to='/' className="py-2 d-md-inline-block mt-2">Home</LinkRouter>}
+        {location.pathname === "/store" && <LinkRouter to='/' className="py-2 d-none d-md-inline-block mt-2">Home</LinkRouter>}
         <LinkRouter to='/store' className="py-2 d-md-inline-block mt-2">Store</LinkRouter>
         {location.pathname !== "/store" && handleStoreRender()}
         <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact Us</LinkRouter>

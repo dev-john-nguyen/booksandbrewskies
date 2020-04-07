@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatPrice } from '../../util';
 
 const CartSectionProduct = ({title, style, price, quantity}) => {
   return (
@@ -13,7 +14,7 @@ const CartSectionProduct = ({title, style, price, quantity}) => {
         </div>
           <div className="row" style={{display: "block"}}>
             <span className="badge badge-secondary badge-pill">{quantity}</span>
-            <span className="text-muted ml-1">${price}</span>
+            <span className="text-muted ml-1">${formatPrice(price)}</span>
           </div>
       </li>
   )

@@ -19,22 +19,88 @@ a:hover {
   color: #fff;
 }
 
+.team-icons:hover {
+  height: 2rem;
+}
+
+.podcast-icons:hover {
+  box-shadow: 0px 0px 5px 1px #fff;
+  border-radius: 15px;
+}
+
+.list-inline{
+  height: 2rem;
+}
+
+.botmw-text-design {
+  position: relative;
+    top: 200px;
+    transform: rotate(-25deg);
+    font-size: 2rem;
+    background-color: #eabf00;
+    width: 70%;
+    margin: auto;
+    color: #fff;
+    box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
+}
+
+
+#chevron {
+  position: relative;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: 60px;
+  width: 200px;
+  margin: auto;
+
+}
+#chevron:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 51%;
+  background: #eabf00;
+  transform: skew(0deg, 6deg);
+  box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
+  
+}
+#chevron:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50%;
+  width: 50%;
+  background: #eabf00;
+  transform: skew(0deg, -6deg);
+  box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
+}
+
+
 .btn-brown {
-  background-color: #332212;
+  background-color: #eabf00;
   color: #fff;
   text-align: center;
   vertical-align: middle;
+  -webkit-user-select: none;
   user-select: none;
-  border: 1px solid transparent;
+  border: 1px solid #eabf00;
   padding: .375rem .75rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   border-radius: .25rem;
+  box-shadow: 0rem 0rem 1rem 0.5rem #eee;
+}
+
+.btn-brown:hover {
+  box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
 }
 
 .row{
   max-width: 1200px;
-  margin: auto;
 }
 
 .mt-6 {

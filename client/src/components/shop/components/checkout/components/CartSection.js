@@ -1,7 +1,7 @@
 import React from 'react';
 import CartSectionProduct from './CartSectionProduct';
 
-const CartSection = ({cartTotal, cartProducts}) => {
+const CartSection = ({cartTotal, cartProducts, formatTotalPrice}) => {
 
   const products = cartProducts.map(p => {
     return (
@@ -17,7 +17,7 @@ const CartSection = ({cartTotal, cartProducts}) => {
       </div>
       <div className="col text-right">
         <span className="badge badge-secondary badge-pill">{cartTotal.productQuantity}</span>
-        <span className="text-muted ml-1">${cartTotal.totalPrice}</span>
+        <span className="text-muted ml-1">${formatTotalPrice}</span>
       </div>
     </div>
 

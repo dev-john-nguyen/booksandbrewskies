@@ -58,7 +58,7 @@
       right: 10px;
       padding: 5px;
       font-size: 0.6em;
-      background-color: #1b1a20;
+      background-color: rgb(19, 15, 10);
       cursor: default;
     }
 
@@ -70,7 +70,7 @@
 
     &__title {
       position: relative;
-      height: 45px;
+      margin-top: 1rem;
 
       // &::before {
       //   content: '';
@@ -98,7 +98,7 @@
     }
 
     &__buy-btn {
-      background-color: #1b1a20;
+      background-color: rgb(51, 34, 18);
       color: #fff;
       padding: 15px 0;
       margin-top: 10px;

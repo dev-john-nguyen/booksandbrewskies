@@ -172,8 +172,7 @@ class FloatCart extends Component {
             {products}
             {!products.length && (
               <p className="shelf-empty">
-                Add some products in the cart <br />
-                :)
+                Add Some Products In The Cart
               </p>
             )}
           </div>
@@ -188,7 +187,7 @@ class FloatCart extends Component {
                 )}`}
               </p>
             </div>
-            <Link to="/store/checkout" className="btn btn-primary" onClick={this.openFloatCart}>Checkout</Link>
+            <Link to="/store/checkout" className="btn btn-primary mt-5 btn-lg btn-block" onClick={this.openFloatCart}>Checkout</Link>
           </div>
         </div>
       </div>

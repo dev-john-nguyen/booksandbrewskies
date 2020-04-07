@@ -3,6 +3,12 @@ import Christian from '../../images/team/Christian.png';
 import Shane from '../../images/team/Shane.png';
 import John from '../../images/team/John-Nguyen.png';
 
+import Facebook from '../../images/facebook.png';
+import Instagram from '../../images/insta.png';
+import Twitter from '../../images/twitter.png';
+import Linkedin from '../../images/linkedin.png';
+
+
 const Team = () => {
   const titleStyle = {
     borderBottom: "2px solid #fff",
@@ -16,10 +22,10 @@ const Team = () => {
     <>
       <div className="text-center pt-6 pb-6" id="team">
 
-        <h1 className="mb-6 title" style={titleStyle}>Meet Your Host</h1>
+        <h1 className="mb-6 title" style={titleStyle}>Meet The Host</h1>
 
-        <div className="row">
-        <div className="col-sm-4">
+        <div className="row m-auto">
+        <div className="col">
           <div className="team-member">
             <img className="mx-auto rounded-circle mb-2" src={Shane} alt="" style={{width: '200px'}}/>
             <h4>Shane Moody</h4>
@@ -27,23 +33,29 @@ const Team = () => {
             <ul className="list-inline social-buttons">
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"><img className="team-icons" src={Twitter} /></i>
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"><img className="team-icons" src={Facebook} /></i>
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"><img className="team-icons" src={Linkedin} /></i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">
+                  <i className="fab fa-instagram-in"><img className="team-icons" src={Instagram} /></i>
                 </a>
               </li>
             </ul>
           </div>
+          <div id="chevron" />
         </div>
-        <div className="col-sm-4">
+        <div className="col">
           <div className="team-member">
             <img className="mx-auto rounded-circle mb-2" src={Christian} alt="" style={{width: '200px'}}/>
             <h4>Christian Backes</h4>
@@ -51,44 +63,24 @@ const Team = () => {
             <ul className="list-inline social-buttons">
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"><img className="team-icons" src={Twitter} /></i>
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"><img className="team-icons" src={Facebook} /></i>
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#">
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"><img className="team-icons" src={Linkedin} /></i>
                 </a>
               </li>
+              <a href="#">
+                  <i className="fab fa-instagram-in"><img className="team-icons" src={Instagram} /></i>
+                </a>
             </ul>
-          </div>
-        </div>
-        <div className="col-sm-4">
-          <div className="team-member">
-            <img className="mx-auto rounded-circle mb-2" src={John} alt="" style={{width: '200px'}}/>
-            <h4>John Nguyen</h4>
-            <p>Lead Developer</p>
-            <ul className="list-inline social-buttons">
-              <li className="list-inline-item">
-                <a href="#">
-                  <i className="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="#">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="#">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
+            <div id="chevron" />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Header = ({ location }) => {
   const handleStoreRender = () => {
     return (
       <>
-        <Link
+        {/* <Link
           activeClass='active'
           to="platforms"
           spy={true}
@@ -20,7 +20,7 @@ const Header = ({ location }) => {
           className="py-2 d-none d-md-inline-block mt-2"
         >
           Podcast
-</Link>
+</Link> */}
         <Link
           activeClass='active'
           to="special-events"

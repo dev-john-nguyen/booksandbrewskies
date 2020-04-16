@@ -26,7 +26,7 @@ const App = ({ location }) => {
     <>
       <Navbar location={location} />
         <Suspense fallback={<Spinner />}>
-        <div className="overflow-hidden" style={{minHeight: '100vh'}}>
+        <div className="overflow-hidden" style={{minHeight: '85vh'}}>
       <img src={BackgroundImage} className="img-fluid h-100 w-100" alt="background" style={
           {
             top: "0px",

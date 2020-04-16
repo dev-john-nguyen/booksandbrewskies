@@ -2,7 +2,7 @@
 
 
 body {
-  font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Abril Fatface', cursive !important;
   color: #fff;
   background-color: #fff;
   min-height: 100vh;
@@ -13,6 +13,23 @@ body {
   background-size: cover;
 }
 
+.attraction-header {
+  background-color: #eabf00;
+  box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
+  text-align: center;
+  color: #fff;
+  padding: 5px;
+}
+
+.listen-now {
+  background-color: #eabf00;
+  width: 30%;
+  min-width: 300px;
+  margin: auto;
+  border-radius: 2%;
+  box-shadow: 0px 0px 5px 0px #fff;
+}
+
 a,
 a:focus,
 a:hover {
@@ -20,7 +37,9 @@ a:hover {
 }
 
 .team-icons:hover {
-  height: 2rem;
+  box-shadow: 0px 0px 10px 0px #eabf00;
+  border: 2px solid #fff;
+  border-radius: 50%;
 }
 
 .podcast-icons:hover {
@@ -32,17 +51,66 @@ a:hover {
   height: 2rem;
 }
 
-.botmw-text-design {
+.botmw-text-design-book {
   position: relative;
-    top: 200px;
+    bottom: 280px;
+    transform: rotate(-25deg);
+    font-size: 2rem;
+    background-color: rgb(51, 34, 18);
+    width: 80%;
+    min-width: 290px;
+    padding: 5px;
+    margin: auto;
+    color: #fff;
+    border-radius: 2%;
+    box-shadow: 0px 0px 5px 0px #fff;
+    min-width: 450px;
+}
+
+.botmw-text-design-beer {
+  position: relative;
+    bottom: 240px;
     transform: rotate(-25deg);
     font-size: 2rem;
     background-color: #eabf00;
-    width: 70%;
+    width: 80%;
     min-width: 290px;
+    padding: 5px;
     margin: auto;
     color: #fff;
+    border-radius: 2%;
     box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
+    min-width: 450px;
+}
+
+#chevron-attraction {
+  position: relative;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: 70px;
+  width: 100%;
+  top: 40px;
+}
+#chevron-attraction:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 130%;
+  width: 50%;
+  background: #fff;
+  transform: skew(0deg, 6deg);
+}
+#chevron-attraction:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 130%;
+  width: 50%;
+  background: #fff;
+  transform: skew(0deg, -6deg);
 }
 
 
@@ -52,7 +120,7 @@ a:hover {
   padding: 12px;
   margin-bottom: 6px;
   height: 60px;
-  width: 200px;
+  width: 225px;
   margin: auto;
 
 }
@@ -62,7 +130,7 @@ a:hover {
   top: 0;
   left: 0;
   height: 50%;
-  width: 51%;
+  width: 50%;
   background: #eabf00;
   transform: skew(0deg, 6deg);
   box-shadow: 0px 0px 5px 0px rgb(51, 34, 18);
@@ -122,11 +190,6 @@ a:hover {
 
 .header-title {
   font-size: 4.5rem;
-  font-family: 'Abril Fatface', cursive;
-}
-
-.home-title {
-  font-family: 'Abril Fatface', cursive;
 }
 
 /* Custom default button */

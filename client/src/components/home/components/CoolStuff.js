@@ -1,32 +1,53 @@
 import React from 'react';
-import CoorsLight from '../../images/beers/CoorsLight.jpg';
-import Book from '../../images/beers/Image 5.svg';
+import Beer from '../../images/beers/Beer.jpg';
+import Book from '../../images/beers/Book.jpg';
 
-const CoolStuff = () => {
-  const titleStyle = {
-    borderBottom: "2px solid #332212",
-    maxWidth: "500px",
-    margin: "auto",
-    padding: "10px"
+const CoolStuff = ({ scrollHeight }) => {
+  let imgStyle = {
+    position: "relative",
+    bottom: '170px'
+  };
+  
+
+  if (scrollHeight > .03 && scrollHeight < .34) {
+    imgStyle = {
+      position: "relative",
+      bottom: `${170 - (scrollHeight * 500)}px`
+    }
+  } else if (scrollHeight > .34) {
+    imgStyle = {
+      position: "relative",
+      bottom: "0"
+    }
   }
+
+
   return (
-    <div className="pt-6 pb-6 text-center special-events" style={{color: '#332212', backgroundColor: '#fff'}}>
-      <h1 style={titleStyle}>Special Events</h1>
-      <div className="row m-auto mt-6">
-        <div className="col">
-          <h2 className="botmw-text-design">Book Of The Month</h2>
-          <img className="mt-3" src={Book} alt ="book" />
-          <h3 className="mt-3">The Art of War</h3>
-          <p className="mt-2">By: Sun Tzu</p>
+    <>
+      <div id="chevron-attraction" />
+      <div className="pt-6 pb-6 text-center special-events" style={{ color: '#332212', backgroundColor: '#fff' }}>
+      <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
+                <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '400px' }}/>
+                <div className="row m-auto mt-6 justify-content-center align-items-center">
+                <div className="col">
+            <img className="img-fluid rounded shadow" src={Book} style={imgStyle} alt="book" />
+            <h2 className="botmw-text-design-book">Book Of The Month</h2>
+          </div>
+          <div className="col"><h1 className="">You Are A Badass</h1>
+            <p>By: Jen Sincero</p></div>
         </div>
-        <div className="col">
-          <h2 className="botmw-text-design">Beer Of The Week</h2>
-          <img className="mt-3" src={CoorsLight} alt="beer" />
-          <h3 className="mt-3">Coors Light</h3>
-          <p className="mt-2">From: Golden, Colorado</p>
+        <div className="row m-auto mt-6 justify-content-center align-items-center">
+          <div className="col mb-3">
+            <h1 className="">Tommyknocker</h1>
+            <p>From: Idaho Springs, Colorado</p>
+            </div>
+          <div className="col">
+            <img className={`img-fluid rounded shadow ${scrollHeight > .51 && 'animated tada'}`} src={Beer} alt="beer" />
+            <h2 className="botmw-text-design-beer">Beer Of The Week</h2>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

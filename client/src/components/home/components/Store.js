@@ -4,12 +4,6 @@ import {Link} from 'react-router-dom';
 
 
 const Store = () => {
-    const titleStyle = {
-        borderBottom: "2px solid #332212",
-        maxWidth: "500px",
-        margin: "auto",
-        padding: "10px"
-    }
     return (
         <>
             <div className="pt-6 pb-6 text-center" id="store" style={{color: '#332212', backgroundColor: '#fff'}}>

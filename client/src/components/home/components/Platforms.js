@@ -4,14 +4,15 @@ import Spotify from '../../images/platforms/spotify.png';
 import Anchor from '../../images/platforms/anchor.png';
 import Apple from '../../images/platforms/apple.png';
 
-const Platforms = () => {
+const Platforms = ({scrollHeight}) => {
+
   return (
-    <div className="pt-6 pb-6 text-center" id="platforms">
+    <div className="pt-2 text-center" id="platforms">
       <div className="platforms">
-        <div className="row m-auto" style={{ marginTop: "3rem" }}>
-          <div className="col">
-            <h1 className="text-white mb-5 ml-auto mr-auto" style={{ width: '80%' }}>"You may never know what results come of your actions,
-          but if you do nothing, there will be no results."</h1>
+        <div className="row m-auto" style={{ marginTop: "3rem"}}>
+          <div className='col animated slideInUp delay-1s'>
+            {/* <h1 className="text-white mb-5 ml-auto mr-auto" style={{ width: '80%' }}>"You may never know what results come of your actions,
+          but if you do nothing, there will be no results."</h1> */}
             <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer">
               <img className="podcast-icons mr-3" src={Youtube} aria-label="youtube" alt="youtube" />
             </a>

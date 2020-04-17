@@ -5,19 +5,22 @@ import Book from '../../images/beers/Book.jpg';
 const CoolStuff = ({ scrollHeight }) => {
   let imgStyle = {
     position: "relative",
-    bottom: '170px'
+    bottom: '170px',
+    minWidth: '200px'
   };
   
 
   if (scrollHeight > .03 && scrollHeight < .34) {
     imgStyle = {
       position: "relative",
-      bottom: `${170 - (scrollHeight * 500)}px`
+      bottom: `${170 - (scrollHeight * 500)}px`,
+      minWidth: '200px'
     }
   } else if (scrollHeight > .34) {
     imgStyle = {
       position: "relative",
-      bottom: "0"
+      bottom: "0",
+      minWidth: '200px'
     }
   }
 
@@ -29,20 +32,22 @@ const CoolStuff = ({ scrollHeight }) => {
       <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
                 <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '300px' }}/>
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
-                <div className="col" style={{minWidth: '200px'}}>
+                <div className="col">
             <img className="img-fluid rounded shadow" src={Book} style={imgStyle} alt="book" />
             <h2 className="botmw-text-design-book">Book Of The Month</h2>
           </div>
-          <div className="col"><h1 className="">You Are A Badass</h1>
-            <p>By: Jen Sincero</p></div>
+          <div className="col">
+            <h1 className="">You Are A Badass</h1>
+            <p>By: Jen Sincero</p>
+            </div>
         </div>
         <div className="row m-auto mt-6 justify-content-center align-items-center">
-          <div className="col mb-3">
+          <div className="col mb-5">
             <h1 className="">Tommyknocker</h1>
             <p>From: Idaho Springs, Colorado</p>
             </div>
-          <div className="col" style={{minWidth: '200px'}}>
-            <img className={`img-fluid rounded shadow ${scrollHeight > .45 && 'animated tada'}`} src={Beer} alt="beer" />
+          <div className="col">
+            <img className={`img-fluid rounded shadow ${scrollHeight > .45 && 'animated tada'}`} src={Beer} alt="beer" style={{minWidth: '200px'}} />
             <h2 className="botmw-text-design-beer">Beer Of The Week</h2>
           </div>
         </div>

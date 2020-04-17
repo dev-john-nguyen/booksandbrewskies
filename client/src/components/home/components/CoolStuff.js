@@ -32,24 +32,20 @@ const CoolStuff = ({ scrollHeight }) => {
       <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
                 <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '300px' }}/>
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
-                <div className="col">
-            <img className="img-fluid rounded shadow" src={Book} style={imgStyle} alt="book" />
-            <h2 className="botmw-text-design-book">Book Of The Month</h2>
-          </div>
-          <div className="col">
-            <h1 className="">You Are A Badass</h1>
+                <div className="col mb-5">
+            <h1 className="mb-4">Book Of The Month</h1>
+            <img className='img-fluid rounded shadow mb-3' src={Book} alt="beer" style={{minWidth: '200px'}} />
+            <h2 className="">You Are A Badass</h2>
             <p>By: Jen Sincero</p>
             </div>
         </div>
         <div className="row m-auto mt-6 justify-content-center align-items-center">
           <div className="col mb-5">
-            <h1 className="">Tommyknocker</h1>
+          <h1 className="mb-4">Beer Of The Week</h1>
+            <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .45 && 'animated tada'}`} src={Beer} alt="beer" style={{minWidth: '200px'}} />
+            <h2 className="">Tommyknocker</h2>
             <p>From: Idaho Springs, Colorado</p>
             </div>
-          <div className="col">
-            <img className={`img-fluid rounded shadow ${scrollHeight > .45 && 'animated tada'}`} src={Beer} alt="beer" style={{minWidth: '200px'}} />
-            <h2 className="botmw-text-design-beer">Beer Of The Week</h2>
-          </div>
         </div>
       </div>
     </>

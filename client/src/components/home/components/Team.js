@@ -28,7 +28,7 @@ const Team = ({scrollHeight}) => {
     <>
       <div className="text-center pt-6 pb-6" id="team">
         <h1 className="mb-6" style={titleStyle}>Meet The Host</h1>
-        <div className={`row m-auto ${scrollHeight > .7 ? animation : ''}`} style={scrollHeight < .7 ? rowStyle : {}}>
+        <div className={`row m-auto ${scrollHeight > .6 ? animation : ''}`} style={scrollHeight < .6 ? rowStyle : {}}>
         <div className='col'>
           <div className="team-member">
             <img className="mx-auto rounded-circle mb-2" src={Shane} alt="" style={{width: '200px'}}/>

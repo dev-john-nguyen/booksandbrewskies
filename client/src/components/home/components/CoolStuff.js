@@ -27,7 +27,7 @@ const CoolStuff = ({ scrollHeight }) => {
       <div id="chevron-attraction" />
       <div className="pt-6 pb-6 text-center special-events" style={{ color: '#332212', backgroundColor: '#fff' }}>
       <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
-                <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '400px' }}/>
+                <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '300px' }}/>
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
                 <div className="col">
             <img className="img-fluid rounded shadow" src={Book} style={imgStyle} alt="book" />
@@ -42,7 +42,7 @@ const CoolStuff = ({ scrollHeight }) => {
             <p>From: Idaho Springs, Colorado</p>
             </div>
           <div className="col">
-            <img className={`img-fluid rounded shadow ${scrollHeight > .51 && 'animated tada'}`} src={Beer} alt="beer" />
+            <img className={`img-fluid rounded shadow ${scrollHeight > .45 && 'animated tada'}`} src={Beer} alt="beer" />
             <h2 className="botmw-text-design-beer">Beer Of The Week</h2>
           </div>
         </div>

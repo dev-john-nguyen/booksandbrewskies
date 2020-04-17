@@ -17,7 +17,7 @@ const Platforms = ({scrollHeight}) => {
               <img className="podcast-icons mr-3" src={Youtube} aria-label="youtube" alt="youtube" />
             </a>
             <a href="https://anchor.fm/books--brewskies" target="_blank" rel="noopener noreferrer">
-              <img className="podcast-icons mr-3" src={Anchor} aria-label="anchor" alt="anchor" />
+              <img className="podcast-icons mr-3" src={Anchor} aria-label="anchor" alt="anchor" style={{borderRadius: '20%'}}/>
             </a>
 
             <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">

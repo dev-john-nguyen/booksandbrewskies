@@ -30,7 +30,7 @@ const CoolStuff = ({ scrollHeight }) => {
       <div id="chevron-attraction" />
       <div className="pt-6 pb-6 text-center special-events" style={{ color: '#332212', backgroundColor: '#fff' }}>
       <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
-                <div id="chevron" style={{ width: '30%', top: '25px', minWidth: '300px' }}/>
+                <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }}/>
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
                 <div className="col">
             <h1 className="mb-4">Book Of The Month</h1>

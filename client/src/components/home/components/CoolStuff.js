@@ -44,8 +44,8 @@ const CoolStuff = ({ scrollHeight }) => {
             <div className="col">
           <h1 className="mb-4">Beer Of The Week</h1>
             <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src='./media/boftmw/Beer.jpg' alt="beer" style={{minWidth: '200px'}} />
-            <h2 className="">Tommyknocker</h2>
-            <p>From: Idaho Springs, Colorado</p>
+            <h2 className="">Derivative: Vic Secret</h2>
+            <p>From: Rhode Island</p>
             </div>
         </div>
       </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import Beer from '../../images/beers/Beer.jpg';
-import Book from '../../images/beers/Book.jpg';
 
 const CoolStuff = ({ scrollHeight }) => {
   let imgStyle = {
@@ -10,13 +8,13 @@ const CoolStuff = ({ scrollHeight }) => {
   };
   
 
-  if (scrollHeight > .03 && scrollHeight < .34) {
+  if (scrollHeight > .1 && scrollHeight < .41) {
     imgStyle = {
       position: "relative",
       bottom: `${170 - (scrollHeight * 500)}px`,
       minWidth: '200px'
     }
-  } else if (scrollHeight > .34) {
+  } else if (scrollHeight > .41) {
     imgStyle = {
       position: "relative",
       bottom: "0",
@@ -38,14 +36,14 @@ const CoolStuff = ({ scrollHeight }) => {
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
                 <div className="col">
             <h1 className="mb-4">Book Of The Month</h1>
-            <img className='img-fluid rounded shadow mb-3' src={Book} alt="beer" style={{minWidth: '200px'}} />
+            <img className='img-fluid rounded shadow mb-3' src='./media/boftmw/Book.jpg' alt="beer" style={{minWidth: '200px'}} />
             <h2 className="">You Are A Badass</h2>
             <p>By: Jen Sincero</p>
             </div>
  
             <div className="col">
           <h1 className="mb-4">Beer Of The Week</h1>
-            <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src={Beer} alt="beer" style={{minWidth: '200px'}} />
+            <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src='./media/boftmw/Beer.jpg' alt="beer" style={{minWidth: '200px'}} />
             <h2 className="">Tommyknocker</h2>
             <p>From: Idaho Springs, Colorado</p>
             </div>

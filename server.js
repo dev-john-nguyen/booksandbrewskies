@@ -33,12 +33,15 @@ app.use((req, res, next) => {
   }
 });
 
+app.use('/media', express.static(path.join(__dirname, './media')));
+
 const productsRouter = require('./services/products');
 const contactsRouter = require('./services/contacts');
 const ordersRouter = require('./services/orders');
 const ordersStripeRouter = require('./services/stripeOrders');
 const stripeWebhookRouter = require('./services/webhooks/stripe');
 const podcastsRouter = require('./services/podcasts');
+// const reviewsRouter = require('./services/reviews');
 
 app.use('/products', productsRouter);
 app.use('/contact', contactsRouter);
@@ -46,6 +49,7 @@ app.use('/webhook', stripeWebhookRouter);
 app.use('/shop/checkout/', ordersStripeRouter);
 app.use('/paid', ordersRouter);
 app.use('/podcasts', podcastsRouter);
+// app.use('/reviews', reviewsRouter);
 
 // Serve Static Assets (React Build) in production
 if(process.env.NODE_ENV === 'production') {

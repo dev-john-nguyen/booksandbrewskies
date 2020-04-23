@@ -49,8 +49,8 @@ class BB extends React.Component {
         if (!this.state.login.enter) {
             return (
                 <div className="row align-items-center m-auto text-center" style={{height: '90vh'}}>
-                    <div className="col align-self-center">                     
-                        <form className="login m-auto w-50 rounded" onSubmit={this.handleLogin}>
+                    <div className="col align-self-center m-auto">                     
+                        <form className="login m-auto w-50 rounded" onSubmit={this.handleLogin} style={{minWidth: '290px'}}>
                         <h1>Only Men Can Enter</h1>
                             <input type='password' placeholder="password" name='password' className="form-control" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} />
                             <button type="submit" className="btn btn-primary mt-3 ml-auto mr-auto">Login</button>

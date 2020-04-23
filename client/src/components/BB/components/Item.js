@@ -95,7 +95,7 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
             <div className="modal d-flex" tabIndex="-1" role="dialog" id='main' mousewheel='passive'>
                 <div className="position-absolute h-100 w-100" onClick={handleClose} />
                 <div className="modal-dialog w-100" role="document">
-                    <div className="modal-content" style={{ minHeight: '90vh', overflow: 'auto' }}>
+                    <div className="modal-content" style={{ height: '90vh', overflow: 'auto' }}>
                         <div className="modal-header justify-content-end">
                             <button type="button" className="close" aria-label="Close" onClick={handleClose}>
                                 <span aria-hidden="true">&times;</span>

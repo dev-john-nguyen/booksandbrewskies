@@ -3,9 +3,15 @@ import { isEmpty } from 'lodash';
 
 export const insert_rating = async(rating, id) => {
 
-    if (isEmpty(rating)) throw 'Rating is Empty';
+    if (isEmpty(rating))  throw Object.assign(
+        new Error('No Rating'),
+        { code: 402 }
+     );
 
-    if (isEmpty(id)) throw 'No Item';
+    if (isEmpty(id))  throw Object.assign(
+        new Error("Id is empty"),
+        { code: 402 }
+     );
 
     let response;
 
@@ -21,11 +27,20 @@ export const insert_rating = async(rating, id) => {
 
 export const insert_comment = async(name, comment, id) => {
 
-    if(isEmpty(comment)) throw 'No Comment';
+    if(isEmpty(comment))  throw Object.assign(
+        new Error("No Comment"),
+        { code: 402 }
+     );
 
-    if(isEmpty(name)) throw 'No Name';
+    if(isEmpty(name))  throw Object.assign(
+        new Error("No Name"),
+        { code: 402 }
+     );
     
-    if(isEmpty(id))  throw 'No Item';
+    if(isEmpty(id)) throw Object.assign(
+        new Error("Id is Empty"),
+        { code: 402 }
+     );
 
     let response;
 

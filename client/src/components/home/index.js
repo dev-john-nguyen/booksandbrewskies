@@ -39,7 +39,7 @@ class Home extends React.Component {
 
     return (
       <>
-        <div className="row m-auto align-items-center vh-100 text-center">
+        <div className="row m-auto align-items-center vh-100 text-center" style={{minHeight: '510px'}}>
           <div className="col align-self-center" style={{transform: 'rotate3d(1, 1, 0, 15deg)'}}>
             <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">Books & Brewskies</h1>
             <p className="lead">Created by the men, for the boys.</p>

@@ -9,7 +9,7 @@ import Apple from './images/platforms/apple.png';
 const Footer = () => {
       return (
             <footer className="footer mt-auto py-1" style={{ backgroundColor: "#130f0a", opacity: "0.9" }}>
-                  <div className="container d-flex flex-md-row justify-content-between" style={{ maxWidth: "960px" }}>
+                  <div className="container d-flex flex-md-row justify-content-between" style={{ maxWidth: "960px", flexWrap: 'wrap' }}>
                         <div className="icon-content p-1">
                         <Link to="/" className="py-2" aria-label="Product"><img src={Logo} alt="logo" height="50px" width="50px" /></Link>
                         <p className="mt-2 serif">Created by the men, for the boys.</p>
@@ -26,7 +26,7 @@ const Footer = () => {
                               Contact us with any inquiries. </p>
                         </div>
                         <div className="social-icons mt-2 p-1">
-                              <h4>Follow Us</h4>
+                              <h4>Listen On</h4>
                               <a href="https://open.spotify.com/show/3l2lcEnwFkuByHpp19WAH6" target="_blank" rel="noopener noreferrer">
                                     <img className="rounded mr-2 mt-2" height="25px" width="25px" src={Spotify} alt="Spotify" />
                               </a>

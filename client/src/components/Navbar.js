@@ -51,7 +51,7 @@ const Header = ({ location }) => {
 </LinkRouter>
         {location.pathname !== "/store" && handleStoreRender()}
         <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact</LinkRouter>
-        <div className='py-2 d-inline-block' />
+        {/* <div className='py-2 d-inline-block' /> */}
         {/* {location.pathname !== "/store/checkout" && <FloatCart />} */}
       </div>
     </nav>

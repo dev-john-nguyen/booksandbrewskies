@@ -1,3 +1,21 @@
+ul {
+  list-style: none;
+}
+
+.footer-tab-info a {
+  display: flex;
+}
+.serif {
+  font-family: serif !important;
+}
+
+.icon-content {
+  max-width: 200px;
+}
+
+.basic-information {
+  max-width: 200px;
+}
 
 .bb-item p, .modal-header p {
   margin-bottom: .5rem !important;
@@ -79,6 +97,14 @@ body {
   margin: auto;
   border-radius: 2%;
   box-shadow: 0px 0px 5px 0px #fff;
+}
+
+.youtube-video {
+  box-shadow: 0px 0px 5px 0px #fff;
+  width: 100%;
+  height: auto;
+  min-height: 315px;
+  min-width: 290px;
 }
 
 a,

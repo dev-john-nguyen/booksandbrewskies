@@ -23,18 +23,6 @@ const Header = ({ location }) => {
 </Link> */}
         <Link
           activeClass='active'
-          to="special-events"
-          spy={true}
-          smooth={true}
-          offset={0}
-          duration={500}
-          href=''
-          className="py-2 d-none d-md-inline-block mt-2"
-        >
-          Special Events
-</Link>
-        <Link
-          activeClass='active'
           to="team"
           spy={true}
           smooth={true}
@@ -55,10 +43,16 @@ const Header = ({ location }) => {
         <LinkRouter to='/' className="py-2" aria-label="Home"><img src={Logo} alt="logo" height="50px" width="50px" /></LinkRouter>
         {location.pathname === "/store" && <LinkRouter to='/' className="py-2 d-none d-md-inline-block mt-2">Home</LinkRouter>}
         <LinkRouter to='/store' className="py-2 d-md-inline-block mt-2">Store</LinkRouter>
+        <LinkRouter
+          to="bb"
+          className="py-2 d-md-inline-block mt-2"
+        >
+          Reviews
+</LinkRouter>
         {location.pathname !== "/store" && handleStoreRender()}
-        <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact Us</LinkRouter>
+        <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact</LinkRouter>
         <div className='py-2 d-inline-block' />
-        {location.pathname !== "/store/checkout" && <FloatCart />}
+        {/* {location.pathname !== "/store/checkout" && <FloatCart />} */}
       </div>
     </nav>
   )

@@ -1,4 +1,6 @@
 import React from 'react';
+import StarRating from '../../BB/components/StarRating';
+import {Link} from 'react-router-dom';
 
 const CoolStuff = ({ scrollHeight }) => {
   let imgStyle = {
@@ -39,6 +41,9 @@ const CoolStuff = ({ scrollHeight }) => {
             <img className='img-fluid rounded shadow mb-3' src='./media/boftmw/Book.jpg' alt="beer" style={{minWidth: '200px'}} />
             <h2 className="">You Are A Badass</h2>
             <p>By: Jen Sincero</p>
+            <p className="mb-0">Have you read it? Rate it.</p>
+              <StarRating itemId={'5ea075261c9d440000a5fd90'} setError={() => alert("Sorry, something went wrong.")} />
+              <Link to='/bb' style={{color: '#007bff'}}>View More...</Link>
             </div>
  
             <div className="col">
@@ -46,6 +51,9 @@ const CoolStuff = ({ scrollHeight }) => {
             <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src='./media/boftmw/Beer.jpg' alt="beer" style={{minWidth: '200px'}} />
             <h2 className="">Derivative: Vic Secret</h2>
             <p>From: Rhode Island</p>
+            <p className="mb-0">Have you Tried? Rate it.</p>
+              <StarRating itemId={'5e9ca2071c9d44000045910f'} setError={() => alert("Sorry, something went wrong.")} />
+              <Link to='/bb' style={{color: '#007bff'}}>View More...</Link>
             </div>
         </div>
       </div>

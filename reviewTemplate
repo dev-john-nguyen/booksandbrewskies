@@ -1,0 +1,11 @@
+{  
+    type: "", 
+    name: "", 
+    imageUrl: "", 
+    description: "", 
+    myReview: {
+        rating, comment
+    }, 
+    ratings: [],
+    comments: []
+}

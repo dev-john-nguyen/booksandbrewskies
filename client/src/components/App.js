@@ -20,6 +20,7 @@ const Contact = lazy(() => import('./contact'));
 const Home = lazy(() => import('./home'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 const Shop = lazy(() => import('./shop'));
+const BB = lazy(() => import('./BB'));
 
 const App = ({ location }) => {
   return (
@@ -41,6 +42,7 @@ const App = ({ location }) => {
             <Route path="/" exact component={Home} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/store" exact component={Shop} />
+            <Route path="/bb" exact component={BB} />
             {location.pathname !== "/store/checkout" && <Route component={NotFoundPage} />}
           </Switch>
           <Elements stripe={stripePromise}>

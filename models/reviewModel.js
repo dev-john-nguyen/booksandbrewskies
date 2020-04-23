@@ -5,7 +5,7 @@ const reviewSchema = new mongoose.Schema ({
     name: String,
     imageUrl: String,
     description: String,
-    myReview: Array,
+    myReview: Object,
     ratings: Array,
     comments: Array,
 });

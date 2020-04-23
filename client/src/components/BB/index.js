@@ -202,7 +202,7 @@ class BB extends React.Component {
         return (
             <div className="container">
                 <div className="row mb-5">
-                    <h1 className="m-auto position-relative" style={{top: '20px'}}>BB Reviews</h1>
+                    <h1 className="m-auto position-relative" style={{top: '20px'}}>B/B Reviews</h1>
                 </div>
                 <div className="row">
                     <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{minWidth: '300px'}}>

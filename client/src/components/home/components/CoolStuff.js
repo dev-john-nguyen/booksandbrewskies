@@ -31,7 +31,7 @@ const CoolStuff = ({ scrollHeight }) => {
       <div className="pt-6 pb-6 text-center special-events" style={{ color: '#332212', backgroundColor: '#fff' }}>
         <div className="row m-auto">
           <div className="col">
-      <h1 className="text-center" style={{ fontSize: '3rem' }}>The BB Awards</h1>
+      <h1 className="text-center" style={{ fontSize: '3rem' }}>The B/B Awards</h1>
                 <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }}/>
                 </div>
                 </div>

@@ -96,20 +96,23 @@ const Item = ({name, id, comments, image, custAvg, custStar, myAvg, myStar, myCo
             <div className="position-absolute h-100 w-100" onClick={handleClose}/>
             <div className="modal-dialog w-100" role="document">
                 <div className="modal-content" style={{height: '90vh', overflow: 'auto'}}>
-                    <div className="modal-header">
-                        <div className="row m-auto" style={{fontSize: '.6rem'}}>
+                    <div className="modal-header justify-content-end">
+                        <button type="button" className="close" aria-label="Close" onClick={handleClose}>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div className="row m-auto" style={{fontSize: '.6rem'}}>
+                    <div className="col-6 text-right"><img src={image} className="img-fluid rounded shadow" alt="item image" /></div>
+
                             <div className="col">
                                 <h5 className="modal-title">{name}</h5>
                                 <div className="d-flex"><p>Our<br/>Rating:</p><div className="star d-flex mb-0 ml-1">{myStar}{myAvg}</div></div>
                                 <div className="d-flex"><p>Average<br/>Rating:</p><div className="star d-flex mb-0 ml-1">{custStar}{custAvg}</div></div>
                                 <div className="d-flex">Our<br />Comment:<p className="text-muted mb-0 ml-1">{myComment}</p></div>
                                 </div>
-                                <div className="col-7 text-right"><img src={image} className="img-fluid rounded shadow" alt="item image" /></div>
                         </div>
-                        <button type="button" className="close" aria-label="Close" onClick={handleClose}>
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+
                     <form onSubmit={handleFormSubmit}>
                         <div className="modal-body">
                             {(!isEmpty(mapComments)) ? mapComments : <p>No Comments</p>}
@@ -136,7 +139,7 @@ const Item = ({name, id, comments, image, custAvg, custStar, myAvg, myStar, myCo
                         </div>
                         <div className="modal-footer">
                             <button type="submit" className='btn btn-primary btn-block'>
-                                {loading && <span class="spinner-border spinner-border-sm mb-1" role="status" aria-hidden="true"></span>}
+                                {loading && <span className="spinner-border spinner-border-sm mb-1" role="status" aria-hidden="true"></span>}
                             Submit
                             </button>
                         </div>

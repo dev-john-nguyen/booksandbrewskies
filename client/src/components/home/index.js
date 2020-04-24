@@ -42,7 +42,7 @@ class Home extends React.Component {
         <div className="row m-auto align-items-center vh-100 text-center" style={{minHeight: '510px'}}>
           <div className="col align-self-center" style={{transform: 'rotate3d(1, 1, 0, 15deg)'}}>
             <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">Books & Brewskies</h1>
-            <p className="lead">Created by the men, for the boys.</p>
+            <p className="lead">Created By The Men, For The Boys.</p>
             {/* <p className="listen-now lead p-2">Listen Now</p>
             <svg className="mt-3 bi bi-chevron-down animated infinite bounce slower" width="6em" height="6em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clipRule="evenodd"></path>

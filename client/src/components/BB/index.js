@@ -16,7 +16,6 @@ class BB extends React.Component {
             loading: true,
             itemObj: {},
             filterBB: 'all',
-            login: {enter: false, password: 'ShaneHasABigLeftNut'},
             password: ''
         }
     }
@@ -35,30 +34,7 @@ class BB extends React.Component {
 
     }
 
-    handleLogin = (e) => {
-        e.preventDefault()
-        if(this.state.password === this.state.login.password){
-            this.setState({login: {enter: true}})
-        }else{
-            alert('Incorrect Password');
-        }
-    }
-
     render() {
-
-        if (!this.state.login.enter) {
-            return (
-                <div className="row align-items-center m-auto text-center" style={{height: '90vh'}}>
-                    <div className="col align-self-center m-auto">                     
-                        <form className="login m-auto w-50 rounded" onSubmit={this.handleLogin} style={{minWidth: '290px'}}>
-                        <h1>Only Men Can Enter</h1>
-                            <input type='password' placeholder="password" name='password' className="form-control" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} />
-                            <button type="submit" className="btn btn-primary mt-3 ml-auto mr-auto">Login</button>
-                        </form>
-                    </div>
-                </div>
-            )
-        }
 
         const starSvg = (
             <svg className="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -196,6 +172,9 @@ class BB extends React.Component {
                 </div>
             )
         })
+
+        //reverse array
+        review.reverse();
 
         const { itemObj, filterBB } = this.state;
 

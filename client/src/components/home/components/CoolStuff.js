@@ -38,7 +38,7 @@ const CoolStuff = ({ scrollHeight }) => {
                 <div className="row m-auto mt-6 justify-content-center align-items-center">
                 <div className="col">
             <h1 className="mb-4">Book Of The Month</h1>
-            <img className='img-fluid rounded shadow mb-3' src='./media/boftmw/Book.jpg' alt="beer" style={{minWidth: '200px'}} />
+            <img className='img-fluid rounded shadow mb-3' src='./media/books/0003.jpg' alt="beer" style={{minWidth: '200px'}} />
             <h2 className="">You Are A Badass</h2>
             <p>By: Jen Sincero</p>
             <p className="mb-0">Have you read it? Rate it.</p>
@@ -48,11 +48,11 @@ const CoolStuff = ({ scrollHeight }) => {
  
             <div className="col">
           <h1 className="mb-4">Beer Of The Week</h1>
-            <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src='./media/boftmw/Beer.jpg' alt="beer" style={{minWidth: '200px'}} />
-            <h2 className="">Derivative: Vic Secret</h2>
-            <p>From: Rhode Island</p>
+            <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src='./media/beers/0004.jpg' alt="beer" style={{minWidth: '200px'}} />
+            <h2 className="">Julius</h2>
+            <p>From: Massachusetts (Tree House Brewing Co)</p>
             <p className="mb-0">Have you Tried? Rate it.</p>
-              <StarRating itemId={'5e9ca2071c9d44000045910f'} setError={() => alert("Sorry, something went wrong.")} />
+              <StarRating itemId={'5ea327b5ba04f1edec773481'} setError={() => alert("Sorry, something went wrong.")} />
               <Link to='/bb' style={{color: '#007bff'}}>View More...</Link>
             </div>
         </div>

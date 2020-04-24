@@ -12,7 +12,7 @@ const Footer = () => {
                   <div className="container d-flex flex-md-row justify-content-between" style={{ maxWidth: "960px", flexWrap: 'wrap' }}>
                         <div className="icon-content p-1">
                         <Link to="/" className="py-2" aria-label="Product"><img src={Logo} alt="logo" height="50px" width="50px" /></Link>
-                        <p className="mt-2 serif">Created by the men, for the boys.</p>
+                        <p className="mt-2 serif">Created By The Men, For The Boys.</p>
                         </div>
                         <div className="footer-tab-info d-grid p-1">
                               <p className="mb-1">Pages To Visit</p>
@@ -21,9 +21,10 @@ const Footer = () => {
                                     <Link to='/contact' className="serif">Contact Us</Link>
                         </div>
                         <div className="basic-information p-1">
-                              <p className="mb-1">Alittle Information About Us</p>
-                              <p className="serif">We are personal trainers living in Denver, Colorado. We specialize in sports performance training.
-                              Contact us with any inquiries. </p>
+                              <p className="mb-1">About Us</p>
+                              <p className="serif text-capitalize">We Are Sports Performance Trainers Who Are Former D1 Football Players. We wanted
+                              to share our wisedom by creating a lockerroom like atmosphere and that's when BooksandBrewskies was created.
+                              </p>
                         </div>
                         <div className="social-icons mt-2 p-1">
                               <h4>Listen On</h4>

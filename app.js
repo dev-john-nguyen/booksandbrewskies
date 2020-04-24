@@ -57,7 +57,11 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    if(!req.secure){
+      res.redirect("https://" + req.headers.host + req.url);
+    }else{
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    }
   });
 }
 

@@ -2,10 +2,11 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
+const sslRedirect = require('heroku-ssl-redirect');
 const mongoose = require('mongoose');
-var path = require('path');
+const path = require('path');
 
+app.use(sslRedirect());
 
 // q22Q2dIB0ApxErbM
 //

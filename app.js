@@ -6,7 +6,7 @@ const sslRedirect = require('heroku-ssl-redirect');
 const mongoose = require('mongoose');
 const path = require('path');
 
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 // q22Q2dIB0ApxErbM
 //
@@ -43,7 +43,7 @@ const ordersStripeRouter = require('./services/stripeOrders');
 const stripeWebhookRouter = require('./services/webhooks/stripe');
 const podcastsRouter = require('./services/podcasts');
 const reviewsRouter = require('./services/reviews');
-// const uploadReviews = require('./services/uploadReviews');
+const uploadReviews = require('./services/uploadReviews');
 
 app.use('/products', productsRouter);
 app.use('/contact', contactsRouter);
@@ -52,7 +52,7 @@ app.use('/shop/checkout/', ordersStripeRouter);
 app.use('/paid', ordersRouter);
 app.use('/podcasts', podcastsRouter);
 app.use('/reviews', reviewsRouter);
-// app.use('/upload/reviews', uploadReviews);
+app.use('/upload/reviews', uploadReviews);
 
 // Serve Static Assets (React Build) in production
 if(process.env.NODE_ENV === 'production') {
@@ -60,7 +60,11 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
+    if(!req.secure){
+      res.redirect("https://" + req.headers.host + req.url);
+    }else{
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    }
   });
 }
 

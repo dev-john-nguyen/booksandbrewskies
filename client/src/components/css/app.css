@@ -2,6 +2,13 @@ ul {
   list-style: none;
 }
 
+.uploadBB-form {
+  width: 50%;
+  min-width: 290px;
+  padding: 1rem;
+  margin: auto;
+}
+
 .modal-header .close {
   margin: -1rem -.5rem -1rem;
 }
@@ -115,6 +122,16 @@ a,
 a:focus,
 a:hover {
   color: #fff;
+}
+
+.listen-item {
+  background: #fff;
+  border-radius: 10%;
+  box-shadow: 0px 0px 5px 0px #fff;
+}
+
+.listen-item:hover {
+  box-shadow: 0px 0px 10px 0px #eabf00;
 }
 
 .team-icons:hover {
@@ -326,6 +343,14 @@ a:hover {
 /*
  * Footer
  */
+
+ @media screen and (max-width: 500px) {
+  .safari_only {
+      padding-bottom: 65px;
+      font-size: small;
+  }
+}
+
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }

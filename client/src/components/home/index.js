@@ -43,16 +43,16 @@ class Home extends React.Component {
           <div className="col align-self-center" style={{transform: 'rotate3d(1, 1, 0, 15deg)'}}>
             <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">Books & Brewskies</h1>
             <p className="lead">Created By The Men, For The Boys.</p>
-            {/* <p className="listen-now lead p-2">Listen Now</p>
-            <svg className="mt-3 bi bi-chevron-down animated infinite bounce slower" width="6em" height="6em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clipRule="evenodd"></path>
-              </svg>
-            <Platforms /> */}
+            <div className="d-flex justify-content-center flex-wrap">
+            <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer">
+              <img src="./media/youtube.png" height='50px' className="m-2 listen-item" />
+            </a>
+              <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
+                <img src="./media/apple.svg" className="m-2 listen-item" height='50px' />
+                </a>
+              </div>
             <div>
             </div>
-          </div>
-          <div className="col-7 m-auto" style={{minWidth: '320px'}}>
-          <iframe className="youtube-video rounded" src="https://www.youtube.com/embed/JReL3T1ViQo" width='100%' frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
         </div>
         <div style={{maxWidth: '2000px', margin: 'auto'}}>

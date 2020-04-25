@@ -60,23 +60,19 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
-    if(!req.secure){
-      res.redirect("https://" + req.headers.host + req.url);
-    }else{
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    }
   });
 }
 
-if(process.env.NODE_ENV.trim() === 'test'){
-  console.log("Testing Environment");
-  //set static folder
-  app.use(express.static('client/build'));
+// if(process.env.NODE_ENV.trim() === 'test'){
+//   console.log("Testing Environment");
+//   //set static folder
+//   app.use(express.static('client/build'));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
 
 
 const port = process.env.PORT || 5050;

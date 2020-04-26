@@ -15,8 +15,7 @@ class BB extends React.Component {
             error: false,
             loading: true,
             itemObj: {},
-            filterBB: 'all',
-            password: ''
+            filterBB: 'all'
         }
     }
 

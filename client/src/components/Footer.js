@@ -23,7 +23,7 @@ const Footer = () => {
                         <div className="basic-information p-1">
                               <p className="mb-1">About Us</p>
                               <p className="serif text-capitalize">We Are Sports Performance Trainers Who Are Former D1 Football Players. We wanted
-                              to share our wisedom by creating a lockerroom like atmosphere and that's when BooksandBrewskies was created.
+                              to share our wisdom by creating a locker room like atmosphere and that's when Books and Brewskies was created.
                               </p>
                         </div>
                         <div className="social-icons mt-2 p-1">

@@ -349,6 +349,26 @@ a:hover {
       padding-bottom: 65px;
       font-size: small;
   }
+
+  .modal-content .col-6 {
+    padding: 0;
+  }
+
+  .media-body .text-muted {
+    font-size: smaller;
+  }
+
+  .modal-body {
+    padding: 1rem 0rem 1rem 0rem;
+  }
+
+  .media {
+    padding: 1rem 0rem 1rem 0rem;
+  }
+
+  .modal-content .col {
+    padding: 0;
+  }
 }
 
 .mastfoot {

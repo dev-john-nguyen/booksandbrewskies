@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './images/booksandbrewskies/logo.png';
 import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
-import FloatCart from './shop/components/floatcart';
+// import FloatCart from './shop/components/floatcart';
 
 const Header = ({ location }) => {
 

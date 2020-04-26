@@ -3,7 +3,7 @@ import Together from '../../images/home/together.jpg';
 import Facebook from '../../images/social/facebook.png';
 import Instagram from '../../images/social/instagram.png';
 import Twitter from '../../images/social/twitter.png';
-import Linkedin from '../../images/social/linkedin.png';
+import TikTok from '../../images/social/tiktok.png';
 
 const Attraction = ({scrollHeight}) => {
 
@@ -28,8 +28,8 @@ const Attraction = ({scrollHeight}) => {
                 </a>
               </li>
               <li className="list-inline-item">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-linkedin-in"><img className="team-icons" src={Linkedin} style={{ width: "calc(.08 * 100vw)", maxWidth: "45px"}} alt="social-icon" /></i>
+              <a href="https://www.tiktok.com/amp/tag/booksandbrewskies" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-linkedin-in"><img className="team-icons" src={TikTok} style={{ width: "calc(.08 * 100vw)", maxWidth: "45px"}} alt="social-icon" /></i>
                 </a>
               </li>
               <li className="list-inline-item">

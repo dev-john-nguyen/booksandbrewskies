@@ -3,16 +3,40 @@ const asyncHandler = require('express-async-handler');
 const Review = require('../models/reviewModel');
 
 router.get('/', asyncHandler(async(req, res) => {
+  let reviewItems;
 
-  const reviewItems = await Review.find({});
+  try {
+    reviewItems = await Review.find({});
+  }catch(e) {
+    return res.status(500).send({status:500, message: 'Something Happened When Finding'});
+  }
   
   if(reviewItems.length < 1 ){
-    return res.status(500).send({status:500, message: 'Null'});
+    res.statusMessage = "Nothing Found"
+    return res.status(400).end();
   }
 
     res.send(reviewItems);
 
 
+}));
+
+router.get('/home', asyncHandler(async(req,res) => {
+  let bbItems;
+
+  try {
+    bbItems = await Review.find({ home: true })
+  }catch(e){
+    return res.status(500).send({status:500, message: 'Something Happened When Finding'});
+  }
+
+  if(bbItems.length < 1 ){
+    res.statusMessage = "Nothing Found"
+    return res.status(400).end();
+  }
+
+  return res.send(bbItems);
+  
 }));
 
 router.post('/rating', asyncHandler(async(req, res) => {
@@ -43,7 +67,7 @@ router.post('/rating', asyncHandler(async(req, res) => {
   reviewItem.ratings.push(parsedRating);
 
   reviewItem.save()
-    .then((obj) => res.send(obj))
+    .then((obj) => res.send('success'))
     .catch((err) => res.status(500).send("something went wrong"))
 
 
@@ -65,7 +89,7 @@ router.post('/comment', asyncHandler(async(req, res) => {
   reviewItem.comments.push({name, comment});
 
   reviewItem.save()
-  .then((obj) => res.send(obj))
+  .then((obj) => res.send('success'))
   .catch((err) => res.status(500).send("something went wrong"))
 
 }));

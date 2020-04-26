@@ -3,7 +3,7 @@ import React from 'react';
 const NotFoundPage = () => {
   return (
     <div className="container" style={{height: "83vh"}}>
-    <div className="row h-100 justify-content-center align-items-center text-dark">
+    <div className="row h-100 justify-content-center align-items-center">
       <div className="col text-center">
       <h1>Page Not Found!</h1>
       <svg className="bi bi-search" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

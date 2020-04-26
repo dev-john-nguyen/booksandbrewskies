@@ -36,16 +36,6 @@ const Team = ({scrollHeight}) => {
             <p>Host</p>
             <ul className="list-inline social-buttons">
               <li className="list-inline-item">
-                <a href="#">
-                  <i className="fab fa-twitter"><img className="team-icons" src={Twitter} /></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-              <a href="https://www.facebook.com/booksandbrewskies/" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-facebook-f"><img className="team-icons" src={Facebook} alt="social-icon" /></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
               <a href="https://www.linkedin.com/in/shane-moody-4927b5199/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-linkedin-in"><img className="team-icons" src={Linkedin} alt="social-icon" /></i>
                 </a>
@@ -66,18 +56,13 @@ const Team = ({scrollHeight}) => {
             <p>Host</p>
             <ul className="list-inline social-buttons">
               <li className="list-inline-item">
-                <a href="#">
+                <a href="https://twitter.com/backes07">
                   <i className="fab fa-twitter"><img className="team-icons" src={Twitter} alt="social-icon" /></i>
                 </a>
               </li>
               <li className="list-inline-item">
-              <a href="https://www.facebook.com/booksandbrewskies/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/backes07/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-facebook-f"><img className="team-icons" src={Facebook} alt="social-icon" /></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="#">
-                  <i className="fab fa-linkedin-in"><img className="team-icons" src={Linkedin} alt="social-icon" /></i>
                 </a>
               </li>
               <li className="list-inline-item">

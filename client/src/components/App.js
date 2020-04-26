@@ -8,12 +8,12 @@ import Spinner from './spinner';
 
 import './css/app.css';
 
-import CheckoutForm from './shop/components/checkout';
+// import CheckoutForm from './shop/components/checkout';
 
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+// import { Elements } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe("pk_test_0kzCXvF6peItv0Z0FZ6QFG0j");
+// const stripePromise = loadStripe("pk_test_0kzCXvF6peItv0Z0FZ6QFG0j");
 
 
 const Contact = lazy(() => import('./contact'));
@@ -21,7 +21,7 @@ const Home = lazy(() => import('./home'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 const Shop = lazy(() => import('./shop'));
 const BB = lazy(() => import('./BB'));
-// const UploadBB = lazy(() => import('./Men/UploadBB'));
+const UploadBB = lazy(() => import('./Men/UploadBB'));
 
 const App = ({ location }) => {
   return (
@@ -80,12 +80,12 @@ const App = ({ location }) => {
             <Route path="/contact" exact component={Contact} />
             <Route path="/store" exact component={Shop} />
             <Route path="/bb" exact component={BB} />
-            {/* <Route path="/men/bb/upload" exact component={UploadBB} /> */}
+            <Route path="/men/bb/upload" exact component={UploadBB} />
             {location.pathname !== "/store/checkout" && <Route component={NotFoundPage} />}
           </Switch>
-          <Elements stripe={stripePromise}>
+          {/* <Elements stripe={stripePromise}>
             <Route path="/store/checkout" exact component={CheckoutForm} />
-          </Elements>
+          </Elements> */}
         </div>
       </Suspense>
       <Footer />

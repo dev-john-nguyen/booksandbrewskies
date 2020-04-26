@@ -103,7 +103,7 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                         </div>
                         <div className="container-fluid">
                         <div className="row m-auto" style={{ fontSize: '.6rem' }}>
-                            <div className="col-6 text-right"><img src={image} className="img-fluid rounded shadow" alt="item image" /></div>
+                            <div className="col-6 text-right"><img src={image} className="img-fluid rounded shadow" alt="item" /></div>
 
                             <div className="col">
                                 <h5 className="modal-title">{name}</h5>
@@ -114,9 +114,9 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                         </div>
                         <div className="row m-auto w-100">
                             <div className="col">
-                        <form onSubmit={handleFormSubmit}>
                             <div className="modal-body">
                                 {(!isEmpty(mapComments)) ? mapComments : <p>No Comments</p>}
+                                <form onSubmit={handleFormSubmit}>
                                 <div className="form-group">
                                     <input type="text"
                                         className="form-control"
@@ -125,6 +125,7 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                                         value={formName}
                                         required />
                                 </div>
+                            
                                 <div className="form-group">
                                     <textarea type="text"
                                         className="form-control"
@@ -137,7 +138,7 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                                 </div>
                                 <p className="m-0">Rating</p>
                                 <StarRating itemId={id} setError={() => setError(true)} />
-                            </div>
+                        
                             <div className="modal-footer">
                                 <button type="submit" className='btn btn-primary btn-block'>
                                     {loading && <span className="spinner-border spinner-border-sm mb-1" role="status" aria-hidden="true"></span>}
@@ -145,6 +146,7 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                             </button>
                             </div>
                         </form>
+                        </div>
                         </div>
                         </div>
                         </div>

@@ -15,7 +15,7 @@ class UploadBB extends React.Component {
             comment: '',
             error: [false, ''],
             success: false,
-            login: [true, 'ShaneHasABigLeftNut'],
+            login: [false, 'ShaneHasABigLeftNut'],
             password: ''
         }
     }

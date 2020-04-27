@@ -63,7 +63,7 @@ const App = ({ location }) => {
             Accept
         </button>
       </div>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<div style={{minHeight: '90vh'}}><Spinner /></div>}>
         <div className="overflow-hidden" style={{ minHeight: '85vh' }}>
           <img src={BackgroundImage} className="img-fluid h-100 w-100" alt="background" style={
             {

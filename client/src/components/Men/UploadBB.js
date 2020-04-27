@@ -15,7 +15,7 @@ class UploadBB extends React.Component {
             comment: '',
             error: [false, ''],
             success: false,
-            login: [false, 'ShaneHasABigLeftNut'],
+            login: [true, 'ShaneHasABigLeftNut'],
             password: ''
         }
     }
@@ -50,6 +50,8 @@ class UploadBB extends React.Component {
         if (!validImageTypes.includes(bbImage.type)) {
             return this.setState({ error: [true, 'Images Only. Must Be jpg, jpeg, png, or gif'] });
         }
+
+        if(bbImage.size >= 1000000) return this.setState({ error: [true, 'Image is too large. Please upload a smaller file image.'] });
 
         const dataString = JSON.stringify(dataObj);
 

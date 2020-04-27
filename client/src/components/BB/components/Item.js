@@ -103,9 +103,9 @@ const Item = ({ name, id, comments, image, custAvg, custStar, myAvg, myStar, myC
                         </div>
                         <div className="container-fluid">
                         <div className="row m-auto" style={{ fontSize: '.6rem' }}>
-                            <div className="col-6 text-right"><img src={image} className="img-fluid rounded shadow" alt="item" /></div>
+                            <div className="col-6 text-right p-1"><img src={image} className="img-fluid rounded shadow" alt="item" /></div>
 
-                            <div className="col">
+                            <div className="col p-1">
                                 <h5 className="modal-title">{name}</h5>
                                 <div className="d-flex"><p>Our<br />Rating:</p><div className="star d-flex mb-0 ml-1">{myStar}{myAvg}</div></div>
                                 <div className="d-flex"><p>Average<br />Rating:</p><div className="star d-flex mb-0 ml-1">{custStar}{custAvg}</div></div>

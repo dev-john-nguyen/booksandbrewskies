@@ -49,7 +49,7 @@ class CoolStuff extends React.Component {
        }
   
       return (
-        <div className="col" key={index}>
+        <div className="col p-2" key={index}>
         <h1 className="mb-4">{title}</h1>
         <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
         <h2 className="">{bobj.name}</h2>

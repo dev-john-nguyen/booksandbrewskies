@@ -369,6 +369,11 @@ a:hover {
   .modal-content .col {
     padding: 0;
   }
+
+  .contact-name .col {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
 }
 
 .mastfoot {

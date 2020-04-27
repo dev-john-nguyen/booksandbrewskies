@@ -50,7 +50,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <div className="form-row mb-3">
+        <div className="form-row mb-3 contact-name">
           <div className="col">
             <Field name="firstName"
               component={this.renderInput}

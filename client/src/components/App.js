@@ -27,7 +27,7 @@ const App = ({ location }) => {
   return (
     <>
       <Navbar location={location} />
-      <div className="alert alert-warning alert-dismissible fade show text-center d-flex flex-wrap justify-content-between safari_only" role="alert" style={{
+      <div className="alert alert-warning alert-dismissible fade show text-center d-flex flex-wrap justify-content-between safari_only text-dark" role="alert" style={{
         position: 'fixed',
         zIndex: '100',
         width: '100vw',

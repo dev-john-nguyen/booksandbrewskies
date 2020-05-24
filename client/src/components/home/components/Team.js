@@ -26,9 +26,12 @@ const Team = ({scrollHeight}) => {
 
   return (
     <>
-      <div className="text-center pt-6 pb-6" id="team">
-        <h1 className="mb-6" style={titleStyle}>Meet The Host</h1>
-        <div className={`row m-auto ${scrollHeight > .58 ? animation : ''}`} style={scrollHeight < .58 ? rowStyle : {}}>
+      <div className="text-center pt-6 pb-6" id="team" style={{ backgroundColor: "#fff", color: "rgb(51, 34, 18)" }}>
+      <div className="col mb-5">
+          <h1 className="text-center" style={{ fontSize: '3rem' }}>Meet The Host</h1>
+          <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
+        </div>
+        <div className={`row m-auto ${scrollHeight > .50 ? animation : ''}`} style={scrollHeight < .50 ? rowStyle : {}}>
         <div className='col'>
           <div className="team-member">
             <img className="mx-auto rounded-circle mb-2" src={Shane} alt="" style={{width: '200px'}}/>
@@ -47,7 +50,7 @@ const Team = ({scrollHeight}) => {
               </li>
             </ul>
           </div>
-          <div id="chevron" />
+          <div id="chevron" style={{ height: '40px' }}/>
         </div>
         <div className="col">
           <div className="team-member">
@@ -71,7 +74,7 @@ const Team = ({scrollHeight}) => {
                 </a>
               </li>
             </ul>
-            <div id="chevron" />
+            <div id="chevron" style={{ height: '40px' }} />
           </div>
         </div>
       </div>

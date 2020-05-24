@@ -179,10 +179,12 @@ class BB extends React.Component {
 
         return (
             <div className="container">
+                <div className="row mb-5 mt-5">
+                <div className="col">
+          <h1 className="text-center" style={{ fontSize: '3rem' }}>B/B Reviews</h1>
+          <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
+        </div>                </div>
                 <div className="row mb-5">
-                    <h1 className="m-auto position-relative" style={{top: '20px'}}>B/B Reviews</h1>
-                </div>
-                <div className="row">
                     <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{minWidth: '300px'}}>
                         <label className="btn btn-secondary">
                             <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({filterBB: 'book'})} />

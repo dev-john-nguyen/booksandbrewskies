@@ -2,6 +2,62 @@ ul {
   list-style: none;
 }
 
+.bb-img-home {
+  transition: all .2s;
+}
+.bb-img-home:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 1rem rgba(0,0,0,.15)!important
+}
+
+.view-more:link,
+.view-more:visited {
+  color: rgb(234, 191, 0);
+  transition: all .2s;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  line-height: 1.5;
+  display: inline-block;
+  padding: .375rem .75rem;
+}
+
+.view-more:link::after,
+.view-more:link::after {
+  content: "...";
+  margin-left: 1px;
+}
+
+.view-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0rem 0.4rem 0.2rem 0rem rgba(0,0,0,.15);
+}
+
+/* .img-bb-home-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.bb-home {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+}
+
+.bb-home-1 {
+
+} */
+
+bb-home-2 {
+  height: ;
+}
+
+bb-home-3 {
+
+}
+
+
 .uploadBB-form {
   width: 50%;
   min-width: 290px;
@@ -203,7 +259,7 @@ a:hover {
   text-align: center;
   padding: 12px;
   margin-bottom: 6px;
-  height: 60px;
+  height: 50px;
   width: 225px;
   margin: auto;
 

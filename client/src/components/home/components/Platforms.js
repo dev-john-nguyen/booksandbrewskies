@@ -1,37 +1,34 @@
 import React from 'react';
-import Youtube from '../../images/platforms/youtube.png';
-import Spotify from '../../images/platforms/spotify.png';
-import Anchor from '../../images/platforms/anchor.png';
-import Apple from '../../images/platforms/apple.png';
 
-const Platforms = ({scrollHeight}) => {
+const Platforms = () => {
 
-  return (
-    <div className="pt-2 text-center" id="platforms">
-      <div className="platforms">
-        <div className="row m-auto" style={{ marginTop: "3rem"}}>
-          <div className='col animated slideInUp delay-1s'>
-            {/* <h1 className="text-white mb-5 ml-auto mr-auto" style={{ width: '80%' }}>"You may never know what results come of your actions,
-          but if you do nothing, there will be no results."</h1> */}
-            <a href="https://www.youtube.com/channel/UCke2FqK-gJ9swoQ5xoh_FHQ" target="_blank" rel="noopener noreferrer">
-              <img className="podcast-icons mr-3" src={Youtube} aria-label="youtube" alt="youtube" />
-            </a>
-            <a href="https://anchor.fm/books--brewskies" target="_blank" rel="noopener noreferrer">
-              <img className="podcast-icons mr-3" src={Anchor} aria-label="anchor" alt="anchor" style={{borderRadius: '20%'}}/>
-            </a>
+  const style = {
+    backgroundColor: '#eabf00',
+    minHeight: '500px',
+    boxShadow: "0px 0px 5px 0px rgb(51, 34, 18)"
+  }
 
-            <a href="https://podcasts.apple.com/us/podcast/books-brewskies/id1496562707" target="_blank" rel="noopener noreferrer">
-              <img className="podcast-icons mr-3" src={Apple} aria-label="apple" alt="apple" />
-            </a>
+  const styleYoutube = {
+    height: "calc(100vw * .43)",
+    minHeight: "200px"
+  }
 
-            <a href="https://open.spotify.com/show/3l2lcEnwFkuByHpp19WAH6" target="_blank" rel="noopener noreferrer">
-              <img className="podcast-icons" src={Spotify} aria-label="spotify" alt="spotify" />
-            </a>
-          </div>
-
+  return ( 
+    <>
+    <div className="pt-6 pb-6 text-center special-events" style={{ color: '#fff' }}>
+      <div className="row m-auto">
+        <div className="col">
+          <h1 className="text-center" style={{ fontSize: '3rem' }}>Pregame Show</h1>
+          <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
         </div>
       </div>
-    </div>
+        <div className="row m-auto mt-6 pb-6">
+          <div className='col'>
+          <iframe className="shadow" width="100%" height="auto" style={styleYoutube} src="https://www.youtube.com/embed/Usxls3krJCw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

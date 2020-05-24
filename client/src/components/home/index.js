@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 
 const Team = React.lazy(() => import('./components/Team'));
 const CoolStuff = React.lazy(() => import('./components/CoolStuff'));
-// const Platforms = React.lazy(() => import('./components/Platforms'));
+const Platforms = React.lazy(() => import('./components/Platforms'));
 // const Store = React.lazy(() => import('./components/Store'));
 const Attraction = React.lazy(() => import('./components/Attraction'));
 
@@ -58,6 +58,7 @@ class Home extends React.Component {
         <div style={{maxWidth: '2000px', margin: 'auto'}}>
         <Suspense fallback={<div>Loading...</div>}>
         <CoolStuff scrollHeight={this.state.theposition} />
+        <Platforms scrollHeight={this.state.theposition} />
         <Team scrollHeight={this.state.theposition}/>
         <Attraction />
         </Suspense>

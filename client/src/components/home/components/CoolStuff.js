@@ -51,12 +51,14 @@ class CoolStuff extends React.Component {
       return (
         <div className="col p-2" key={index}>
         <h1 className="mb-4">{title}</h1>
-        <img className={`img-fluid rounded shadow mb-3 ${scrollHeight > .35 && 'animated tada'}`} src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
+        <Link to='/bb'>
+          <img className="img-fluid rounded shadow mb-3 bb-img-home" src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
+          </Link>
         <h2 className="">{bobj.name}</h2>
         <p>{byFrom}{bobj.description}</p>
         <p className="mb-0">{rate}</p>
         <StarRating itemId={bobj._id} setError={() => alert("Sorry, something went wrong.")} />
-        <Link to='/bb' style={{ color: '#007bff' }}>View More...</Link>
+        <Link to='/bb' className="view-more">View More</Link>
       </div>
       )
     })

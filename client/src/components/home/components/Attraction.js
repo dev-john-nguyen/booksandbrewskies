@@ -9,7 +9,7 @@ const Attraction = ({scrollHeight}) => {
 
     return (
         <>
-        <div className="pt-6 pb-6" id="store" style={{color: '#332212', backgroundColor: '#fff'}}>
+        <div className="pt-6 pb-6" id="store" style={{color: '#fff'}}>
             <div className="row m-auto justify-content-center align-items-center">
             <div className="col text-center" style={{minWidth: '200px'}}>
             <img src={Together} className="rounded img-fluid shadow" alt="together"/>

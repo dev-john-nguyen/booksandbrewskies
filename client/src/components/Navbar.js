@@ -33,6 +33,18 @@ const Header = ({ location }) => {
         >
           Team
 </Link>
+<Link
+          activeClass='active'
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
+          href=''
+          className="py-2 d-none d-md-inline-block mt-2"
+        >
+          Contact
+</Link>
       </>
     )
   }
@@ -42,7 +54,7 @@ const Header = ({ location }) => {
       <div className="container d-flex flex-md-row justify-content-between" style={{ maxWidth: "1000px" }}>
         <LinkRouter to='/' className="py-2" aria-label="Home"><img src={Logo} alt="logo" height="50px" width="50px" /></LinkRouter>
         {location.pathname === "/store" && <LinkRouter to='/' className="py-2 d-none d-md-inline-block mt-2">Home</LinkRouter>}
-        <LinkRouter to='/store' className="py-2 d-md-inline-block mt-2">Store</LinkRouter>
+        <a href='https://teespring.com/stores/books-brewskies' className="py-2 d-md-inline-block mt-2">Store</a>
         <LinkRouter
           to="bb"
           className="py-2 d-md-inline-block mt-2"
@@ -50,7 +62,7 @@ const Header = ({ location }) => {
           Reviews
 </LinkRouter>
         {location.pathname === "/" && handleStoreRender()}
-        <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact</LinkRouter>
+        {/* <LinkRouter to='/contact' className="py-2 d-md-inline-block mt-2">Contact</LinkRouter> */}
         {/* <div className='py-2 d-inline-block' /> */}
         {/* {location.pathname !== "/store/checkout" && <FloatCart />} */}
       </div>

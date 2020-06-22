@@ -5,6 +5,7 @@ const CoolStuff = React.lazy(() => import('./components/CoolStuff'));
 const Platforms = React.lazy(() => import('./components/Platforms'));
 // const Store = React.lazy(() => import('./components/Store'));
 const Attraction = React.lazy(() => import('./components/Attraction'));
+const Contact = React.lazy(() => import('./components/Contact'));
 
 class Home extends React.Component {
 
@@ -61,6 +62,7 @@ class Home extends React.Component {
         <Platforms scrollHeight={this.state.theposition} />
         <Team scrollHeight={this.state.theposition}/>
         <Attraction />
+        <Contact />
         </Suspense>
         </div>
       </>

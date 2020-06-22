@@ -18,7 +18,7 @@ const Attraction = ({scrollHeight}) => {
                 <h1 className="text-center mt-3" style={{ fontSize: '3rem' }}>Follow Us</h1>
                 <ul className="list-inline social-buttons text-center mt-3">
               <li className="list-inline-item">
-                <a href="#">
+                <a href="https://twitter.com/bbrewskies">
                   <i className="fab fa-twitter"><img className="team-icons" src={Twitter} style={{ width: "calc(.08 * 100vw)", maxWidth: "45px"}} alt="social-icon" /></i>
                 </a>
               </li>

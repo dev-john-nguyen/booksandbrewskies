@@ -21,6 +21,38 @@ router.get('/', asyncHandler(async(req, res) => {
 
 }));
 
+router.get('/beer', asyncHandler(async(req,res)=>{
+
+  const { id } = req.query
+
+  if(id.length < 12){
+    res.statusMessage = 'Nothing Found'
+    res.status(400).end();
+    return;
+  }
+
+  
+  await Review.findById(id)
+    .then((obj) => {
+      if(obj){
+        res.send(obj);
+      }else{
+        throw 'Nothing Found';
+      }
+    })
+    .catch((err) => {
+      if(err === 'Nothing Found'){
+        res.statusMessage = 'Nothing Found'
+      }else{
+        res.statusMessage = 'Something went wrong'
+      }
+      
+      res.status(400).end();
+    })
+
+}))
+
+
 router.get('/home', asyncHandler(async(req,res) => {
   let bbItems;
 

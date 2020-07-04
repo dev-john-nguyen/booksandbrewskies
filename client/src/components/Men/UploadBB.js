@@ -6,6 +6,8 @@ class UploadBB extends React.Component {
     constructor(props) {
         super(props);
 
+        const passwordLs = localStorage.getItem('password');
+
         this.state = {
             bbImage: '',
             type: '',
@@ -13,10 +15,12 @@ class UploadBB extends React.Component {
             description: '',
             rating: '',
             comment: '',
+            bio: '',
+            style: '',
             error: [false, ''],
             success: false,
             login: [false, 'ShaneHasABigLeftNut'],
-            password: ''
+            password: passwordLs
         }
     }
 
@@ -27,7 +31,7 @@ class UploadBB extends React.Component {
     handleFormSubmit = async(e) => {
         e.preventDefault();
 
-        const { bbImage, type, name, description, rating, comment } = this.state;
+        const { bbImage, type, name, description, rating, comment, style, bio } = this.state;
         const validImageTypes = ['image/gif', "image/jpeg", 'image/png'];
 
         const dataObj = {
@@ -35,7 +39,9 @@ class UploadBB extends React.Component {
             name,
             description,
             rating,
-            comment
+            comment,
+            style,
+            bio
         }
 
         if( type === '' || rating === ''){
@@ -86,7 +92,8 @@ class UploadBB extends React.Component {
         e.preventDefault()
 
         if (this.state.password === this.state.login[1]){
-            this.setState({login: [true]})
+            localStorage.setItem('password', this.state.login[1]);
+            this.setState({login: [true]});
         }else{
             alert("incorrect")
         }
@@ -105,13 +112,13 @@ class UploadBB extends React.Component {
                     width: '320px'
                 }}>
                     <h1 className="text-center">Only Men</h1>
-                    <input type="password" className="form-control mt-4" name="password" onChange={(e) => this.setState({password: e.target.value})}/>
+                    <input type="password" className="form-control mt-4" name="password" onChange={(e) => this.setState({password: e.target.value})} value={this.state.password}/>
                     <button type="submit" className="btn btn-primary btn-block mt-4">Login</button>
                 </form>
             )
         }
 
-        const { name, description, comment, success, error } = this.state;
+        const { name, description, comment, style, bio, success, error } = this.state;
 
         if(error[0]){
             return (
@@ -162,7 +169,13 @@ class UploadBB extends React.Component {
                                 <input type='text' className="form-control" name='name' placeholder='Name' value={name} onChange={this.handleInputChanges} required />
                             </div>
                             <div className="form-group">
-                                <input type='text' className="form-control" name='description' placeholder='From' value={description} onChange={this.handleInputChanges} required />
+                                <input type='text' className="form-control" name='description' placeholder="Where it's from" value={description} onChange={this.handleInputChanges} required />
+                            </div>
+                            <div className="form-group">
+                                <input type='text' className="form-control" name='style' placeholder='Style of beer or book' value={style} onChange={this.handleInputChanges} required />
+                            </div>
+                            <div className="form-group">
+                                <textarea type='text' className="form-control" name='bio' placeholder='Description of the beer or book' value={bio} onChange={this.handleInputChanges} required />
                             </div>
                             <div className="form-group">
                                 <select name="rating" className="form-control" onChange={this.handleInputChanges}  required>

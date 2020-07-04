@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState, useEffect } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -22,7 +22,7 @@ const NotFoundPage = lazy(() => import('./NotFoundPage'));
 const Shop = lazy(() => import('./shop'));
 const BB = lazy(() => import('./BB'));
 const UploadBB = lazy(() => import('./Men/UploadBB'));
-
+const Beer = lazy(() => import('./beer'));
 
 const App = ({ location }) => {
   const [warning, setWarning] = useState(localStorage.getItem('warningModal'));
@@ -76,6 +76,7 @@ const App = ({ location }) => {
             <Route path="/store" exact component={Shop} />
             <Route path="/bb" exact component={BB} />
             <Route path="/men/bb/upload" exact component={UploadBB} />
+            <Route path="/bb/:id" exact component={Beer} />
             {location.pathname !== "/store/checkout" && <Route component={NotFoundPage} />}
           </Switch>
           {/* <Elements stripe={stripePromise}>

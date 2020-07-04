@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './images/booksandbrewskies/logo.png';
-import Youtube from './images/platforms/youtube.png';
-import Spotify from './images/platforms/spotify.png';
-import Anchor from './images/platforms/anchor.png';
-import Apple from './images/platforms/apple.png';
 
 const Footer = () => {
       return (
@@ -16,7 +12,7 @@ const Footer = () => {
                         </div>
                         <div className="footer-content footer-tab-info p-1">
                               <p className="mb-1">Pages To Visit</p>
-                                    <Link to='/store' className="serif">Store</Link>
+                                    <a href='https://teespring.com/stores/books-brewskies' className="serif">Store</a>
                                     <Link to="/bb" className="serif" >Books and Beers Reviews</Link>
                                     <Link to='/contact' className="serif">Contact Us</Link>
                         </div>

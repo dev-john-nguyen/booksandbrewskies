@@ -1,13 +1,6 @@
 import React from 'react';
 
 const Platforms = () => {
-
-  const style = {
-    backgroundColor: '#eabf00',
-    minHeight: '500px',
-    boxShadow: "0px 0px 5px 0px rgb(51, 34, 18)"
-  }
-
   const styleYoutube = {
     height: "calc(100vw * .43)",
     minHeight: "200px"

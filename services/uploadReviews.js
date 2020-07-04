@@ -86,6 +86,8 @@ router.post('/', (req, res) => {
         name: formData.name,
         imageUrl: imageDir,
         description: formData.description,
+        bio: formData.bio,
+        style: formData.style,
         myReview: {
           rating: formData.rating,
           comment: formData.comment

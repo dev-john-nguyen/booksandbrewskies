@@ -29,8 +29,6 @@ class CoolStuff extends React.Component {
 
 
   render() {
-
-    const { scrollHeight } = this.props;
     const { bb, error } = this.state;
 
     const handleBBRender = bb.map((bobj, index) => {
@@ -58,7 +56,7 @@ class CoolStuff extends React.Component {
         <p>{byFrom}{bobj.description}</p>
         <p className="mb-0">{rate}</p>
         <StarRating itemId={bobj._id} setError={() => alert("Sorry, something went wrong.")} />
-        <Link to='/bb' className="view-more">View More</Link>
+        <Link to={`/bb/${bobj._id}`} className="view-more">View More</Link>
       </div>
       )
     })

@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from '../../contact/components/ContactForm';
-import { contact } from '../../../services/contact/actions';
+import axios from 'axios'
 import Mymodal from '../../Modal';
 
 class Contact extends React.Component {
@@ -16,16 +16,12 @@ class Contact extends React.Component {
       };
     }
   
-    onSubmit = formValues => {
-        return console.log(formValues);
-      this.setState({
-        loading: true,
-        firstName: formValues.firstName,
-        lastName: formValues.lastName
-      });
+    onSubmit = async(formValues) => {
   
-      contact(formValues)
-        .then(res => this.setState({success: true}))
+      await axios.post('/contact', {...formValues})
+        .then(res => {
+          this.setState({success: true})
+        })
         .catch(err => this.setState({ error: true }));
     }
   

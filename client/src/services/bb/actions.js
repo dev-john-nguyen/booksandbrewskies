@@ -14,7 +14,7 @@ export const insert_rating = async (rating, id) => {
     );
 
     try {
-        await axios.post('reviews/rating', { rating, id });
+        await axios.post('/reviews/rating', { rating, id });
     } catch (e) {
         console.log(e)
         return { err: 'Sorry, we are having issues submitting your rating' };
@@ -42,7 +42,7 @@ export const insert_comment = async (name, comment, id) => {
 
 
     try {
-        await axios.post('reviews/comment', { name, comment, id });
+        await axios.post('/reviews/comment', { name, comment, id });
     } catch (e) {
         console.log(e)
         return { err: 'Sorry, we are having issues submitting your comment' };

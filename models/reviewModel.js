@@ -6,6 +6,8 @@ const reviewSchema = new mongoose.Schema ({
     name: String,
     imageUrl: String,
     description: String,
+    bio: String,
+    style: String,
     myReview: {
         rating: Number,
         comment: String

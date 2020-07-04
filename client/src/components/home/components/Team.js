@@ -9,13 +9,6 @@ import Linkedin from '../../images/linkedin.png';
 
 
 const Team = ({scrollHeight}) => {
-  const titleStyle = {
-    maxWidth: "500px",
-    margin: "auto",
-    padding: "10px",
-    fontSize: "3rem"
-  }
-
   const rowStyle = {
     position: 'relative',
     top: '500px'

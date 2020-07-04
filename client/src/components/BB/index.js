@@ -3,8 +3,8 @@ import { isEmpty } from 'lodash';
 import axios from 'axios';
 import Modal from '../Modal';
 import Spinner from '../spinner';
-import Item from './components/Item';
 import { handleStarRating } from './utils';
+import { Link } from 'react-router-dom';
 
 class BB extends React.Component {
     constructor(props) {
@@ -133,8 +133,10 @@ class BB extends React.Component {
             // }
 
             return (
-                <div className="bb-item m-3 p-2 d-flex align-items-start flex-column rounded" style={{ width: '250px' }} key={index}>
-                    <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
+                <div className="bb-item m-3 p-2 d-flex align-items-start flex-column rounded" style={{ width: '220px' }} key={index}>
+                    <Link to={`/bb/${item._id}`}>
+                        <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
+                    </Link>
                     <div className="item-content">
                         <h2>{item.name}</h2>
                         <p>From: {item.description}</p>
@@ -149,25 +151,11 @@ class BB extends React.Component {
                             <p>Average<br />rating:</p>
                             <div className="star ml-1 d-flex">{custRating.avgCustStarRating}{custRating.avgCustomerRating}</div></div>
                     </div>
-                    <button
-                        className="btn btn-primary btn-block mt-auto p-2"
-                        onClick={() => this.setState(
-                            {
-                                itemObj:
-                                {
-                                    name: item.name,
-                                    id: item._id,
-                                    comments: item.comments,
-                                    image: item.imageUrl,
-                                    custAvg: custRating.avgCustomerRating,
-                                    custStar: custRating.avgCustStarRating,
-                                    myAvg: item.myReview.rating,
-                                    myComment: item.myReview.comment,
-                                    myStar: starRating
-                                }
-                            })}>
+                    <Link
+                        to={`/bb/${item._id}`}
+                        className="btn btn-primary btn-block mt-auto p-2">
                         View
-                    </button>
+                    </Link>
                 </div>
             )
         })
@@ -175,27 +163,25 @@ class BB extends React.Component {
         //reverse array
         review.reverse();
 
-        const { itemObj, filterBB } = this.state;
-
         return (
             <div className="container">
                 <div className="row mb-5 mt-5">
-                <div className="col">
-          <h1 className="text-center" style={{ fontSize: '3rem' }}>B/B Reviews</h1>
-          <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
-        </div>                </div>
+                    <div className="col">
+                        <h1 className="text-center" style={{ fontSize: '3rem' }}>B/B Reviews</h1>
+                        <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
+                    </div>                </div>
                 <div className="row mb-5">
-                    <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{minWidth: '300px'}}>
+                    <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{ minWidth: '300px' }}>
                         <label className="btn btn-secondary">
-                            <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({filterBB: 'book'})} />
+                            <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({ filterBB: 'book' })} />
                             Books
                         </label>
                         <label className="btn btn-secondary active">
-                            <input type="radio" name="all" id="all" autoComplete="off" onClick={() => this.setState({filterBB: 'all'})} defaultChecked/>
+                            <input type="radio" name="all" id="all" autoComplete="off" onClick={() => this.setState({ filterBB: 'all' })} defaultChecked />
                             All
                          </label>
                         <label className="btn btn-secondary">
-                            <input type="radio" name="beer" id="beer" autoComplete="off" onClick={() => this.setState({filterBB: 'beer'})}/>
+                            <input type="radio" name="beer" id="beer" autoComplete="off" onClick={() => this.setState({ filterBB: 'beer' })} />
                             Beers
                         </label>
                     </div>
@@ -203,19 +189,6 @@ class BB extends React.Component {
                 <div className="d-flex justify-content-center" style={{ flexWrap: 'wrap' }}>
                     {review}
                 </div>
-                {!isEmpty(itemObj) && <Item
-                    name={itemObj.name}
-                    id={itemObj.id}
-                    comments={itemObj.comments}
-                    image={itemObj.image}
-                    custAvg={itemObj.custAvg}
-                    custStar={itemObj.custStar}
-                    myAvg={itemObj.myAvg}
-                    myStar={itemObj.myStar}
-                    myComment={itemObj.myComment}
-                    handleClose={() => this.setState({ itemObj: {} })
-                    }
-                />}
             </div>
         )
     }

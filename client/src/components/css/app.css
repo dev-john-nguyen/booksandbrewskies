@@ -589,8 +589,9 @@ a:hover {
     margin: auto;
   }
 
-  .team-header-content {
-    min-width: 300px;
+  .team-col, .team-header-content {
+    min-width: 100% !important;
+    margin-bottom: 2rem;
   }
   
 

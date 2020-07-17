@@ -34,7 +34,7 @@ const Team = ({ scrollHeight }) => {
     <>
       <div className="text-center pt-6" id="team" style={{ backgroundColor: "#fff", color: "rgb(51, 34, 18)" }}>
         <div className='row m-auto pt-5'>
-          <div className="col-6">
+          <div className="col-6 team-col">
             <div className="team-header-content">
           <h1 style={{ fontSize: '3rem' }}>Meet The Host</h1>
           <p>

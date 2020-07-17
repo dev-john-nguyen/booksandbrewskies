@@ -23,6 +23,7 @@ const Beer = ({ match }) => {
         if (isEmpty(formName) || isEmpty(formComment)) {
             setEmpty(true);
             setLoading(false);
+            return;
         }
 
         insert_comment(formName, formComment, beer._id)
@@ -52,7 +53,7 @@ const Beer = ({ match }) => {
 
         fetchBeer();
 
-    }, [])
+    }, [match.params.id])
 
     if (error) {
         return (
@@ -148,6 +149,7 @@ const Beer = ({ match }) => {
                     <div className="col">
                         <div className="modal-body">
                             {(!isEmpty(mapComments)) ? mapComments : <p>No Comments</p>}
+                            {empty && <p className="text-danger">Please fill out all fields</p>}
                             <form onSubmit={handleFormSubmit}>
                                 <div className="form-group">
                                     <input type="text"
@@ -155,7 +157,7 @@ const Beer = ({ match }) => {
                                         placeholder="Name" name="Name"
                                         onChange={(e) => setFormName(e.target.value)}
                                         value={formName}
-                                        required />
+                                         />
                                 </div>
 
                                 <div className="form-group">
@@ -166,7 +168,7 @@ const Beer = ({ match }) => {
                                         name="Comment"
                                         onChange={(e) => setFormComment(e.target.value)}
                                         value={formComment} style={{ minHeight: '150px' }}
-                                        required />
+                                         />
                                 </div>
                                 <p className="m-0">Rating</p>
                                 <StarRating itemId={_id} setError={() => setError(true)} />

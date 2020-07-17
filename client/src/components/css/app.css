@@ -1,9 +1,121 @@
 ul {
   list-style: none;
 }
+.media {
+  padding: 1rem;
+}
+.social-buttons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color:rgb(51, 34, 18, 65%);
+  color: #fff;
+  box-shadow: .5rem 1rem 1rem .5rem rgba(0,0,0,.15)!important;
+}
+
+.feature-item, .bb-item:hover img, .recent-review-content img {
+  transition: all .2s;
+}
+
+.feature-item:hover, .bb-item:hover img, .recent-review-content:hover img{
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 1rem rgb(255, 255, 255,.15)!important;
+}
+
+.attraction-section {
+  /* background-image: url('../images/home/together.jpg');
+  background-size: cover; */
+  width: 80%;
+}
+
+.slide-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
+  display: flex;
+  padding: 0rem;
+  border-radius: .25rem!important;
+  width: 80%;
+  min-width: 300px;
+}
+.slide {
+  scroll-snap-align: start;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 3s ease-in-out;
+}
+
+.team-header-content{
+  position: relative;
+  top: 25%;
+  text-align: left;
+}
+
+.team-header-content p {
+  padding: 1rem;
+  width: 85%;
+}
+
+.team-name {
+  transition: .5s ease;
+}
+
+.team-christian {
+  background-image: url('../images/team/christian.png');
+  background-size: cover;
+  bottom: 300px;
+  right: 35%;
+}
+
+.team-shane {
+  background-image: url('../images/team/Shane.png');
+  background-size: cover;
+}
+
+.team-member{
+  background-size: cover;
+  transition: all .3s;
+  width: 60%;
+  height: 500px;
+  margin: auto;
+  min-width: 270px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  float: right;
+}
+
+.team-member:hover .social-buttons {
+  opacity: 1;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 1rem rgba(0,0,0,.15)!important;
+  z-index: 100;
+}
+
+.recent-review-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.team-member:hover .team-name {
+  opacity: 0;
+}
 
 .contact-section {
-  background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 50%, transparent 50%), url('/media/contact-background.jpg');
+  background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 52%, transparent 52%), url('/media/contact-background.jpg');
 background-size: 100%;
 height: 400px;
 background-size: auto;
@@ -56,14 +168,6 @@ background-size: auto;
 
 } */
 
-bb-home-2 {
-  height: ;
-}
-
-bb-home-3 {
-
-}
-
 
 .uploadBB-form {
   width: 50%;
@@ -93,10 +197,6 @@ bb-home-3 {
 
 .bb-item p, .modal-header p {
   margin-bottom: .5rem !important;
-}
-
-.bb-item {
-  box-shadow: 0px 0px 5px 0px #fff;
 }
 
 ::-webkit-scrollbar {
@@ -145,10 +245,11 @@ svg {
 }
 
 body {
-  font-family: 'Abril Fatface', cursive !important;
+  font-family: 'Abril Fatface' !important;
   color: #fff;
   background-color: #fff;
   min-height: 100vh;
+  letter-spacing: 1px;
 }
 
 .studio-background {
@@ -163,6 +264,7 @@ body {
   color: #fff;
   padding: 5px;
 }
+
 
 .listen-now {
   background-color: #eabf00;
@@ -343,9 +445,9 @@ a:hover {
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
+  color: #fff;
+  text-shadow: none;
+  background-color: rgb(51, 34, 18,.9);
   border: .05rem solid #fff;
 }
 
@@ -409,6 +511,10 @@ a:hover {
  */
 
  @media screen and (max-width: 500px) {
+   .bb-item-container {
+     justify-content: space-around !important;
+   }
+
   .safari_only {
       padding-bottom: 65px;
       font-size: small;
@@ -470,6 +576,22 @@ a:hover {
   .sub-title {
     font-size: 1rem;
   }
+
+  .team-christian {
+    right: 10%;
+  }
+
+  .team-member {
+    float: initial;
+  }
+
+  .slide-container {
+    margin: auto;
+  }
+
+  .team-header-content {
+    min-width: 300px;
+  }
   
 
 }
@@ -497,5 +619,10 @@ a:hover {
   .footer-content {
     width: 50%;
   }
+
+  .team-christian {
+    right: 5%;
+  }
+
 }
 

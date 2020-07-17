@@ -59,15 +59,10 @@ class Contact extends React.Component {
         }
     return (
         <div className="pt-6 pb-6 text-center special-events" id="contact" style={{ color: '#332212', backgroundColor: '#fff' }}>
-          <div className="row m-auto">
-          <div className="col">
-              <h1 className="text-center" style={{ fontSize: '3rem' }}>Contact Us</h1>
-              <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
-            </div>
-          </div>
           <div className="row m-auto mt-6 align-items-center contact-section">
               <div className="d-block text-white ml-4">
-                  <h4 className="mb-4">You can ask us anything</h4>
+              <h1 className="text-center">Contact Us</h1>
+                  <p className="mb-4">You can ask us anything</p>
                 <ContactForm onSubmit={this.onSubmit} loading={loading}/>
               </div>
           </div>

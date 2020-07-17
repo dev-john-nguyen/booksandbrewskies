@@ -12,10 +12,9 @@ const Platforms = () => {
       <div className="row m-auto">
         <div className="col">
           <h1 className="text-center" style={{ fontSize: '3rem' }}>Pregame Show</h1>
-          <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
         </div>
       </div>
-        <div className="row m-auto mt-6 pb-6">
+        <div className="row mt-5 mr-auto ml-auto pb-6">
           <div className='col'>
           <iframe className="shadow" width="100%" height="auto" style={styleYoutube} src="https://www.youtube.com/embed/Usxls3krJCw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>

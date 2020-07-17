@@ -6,48 +6,48 @@ import { Link as LinkRouter } from 'react-router-dom';
 
 const Header = ({ location }) => {
 
-  const handleStoreRender = () => {
-    return (
-      <>
-        {/* <Link
-          activeClass='active'
-          to="platforms"
-          spy={true}
-          smooth={true}
-          offset={0}
-          duration={500}
-          href=''
-          className="py-2 d-none d-md-inline-block mt-2"
-        >
-          Podcast
-</Link> */}
-        <Link
-          activeClass='active'
-          to="team"
-          spy={true}
-          smooth={true}
-          offset={0}
-          duration={500}
-          href=''
-          className="py-2 d-none d-md-inline-block mt-2"
-        >
-          Team
-</Link>
-        <Link
-          activeClass='active'
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={0}
-          duration={500}
-          href=''
-          className="py-2 d-none d-md-inline-block mt-2"
-        >
-          Contact
-</Link>
-      </>
-    )
-  }
+//   const handleStoreRender = () => {
+//     return (
+//       <>
+//         {/* <Link
+//           activeClass='active'
+//           to="platforms"
+//           spy={true}
+//           smooth={true}
+//           offset={0}
+//           duration={500}
+//           href=''
+//           className="py-2 d-none d-md-inline-block mt-2"
+//         >
+//           Podcast
+// </Link> */}
+//         <Link
+//           activeClass='active'
+//           to="team"
+//           spy={true}
+//           smooth={true}
+//           offset={0}
+//           duration={500}
+//           href=''
+//           className="py-2 d-none d-md-inline-block mt-2"
+//         >
+//           Team
+// </Link>
+//         <Link
+//           activeClass='active'
+//           to="contact"
+//           spy={true}
+//           smooth={true}
+//           offset={0}
+//           duration={500}
+//           href=''
+//           className="py-2 d-none d-md-inline-block mt-2"
+//         >
+//           Contact
+// </Link>
+//       </>
+//     )
+//   }
 
   const backgroundImageUrl = `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`
 

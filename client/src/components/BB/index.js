@@ -108,37 +108,13 @@ class BB extends React.Component {
 
             const custRating = handleStarRating(item.ratings);
 
-            // //calc customer rating avg
-            // let sum = 0;
-            // for (let i = 0; i < item.ratings.length; i++) {
-            //     sum += parseInt(item.ratings[i], 10);
-            // }
-
-            // let avgCustomerRating = sum / item.ratings.length;
-
-            // avgCustomerRating % 1 !== 0 && (avgCustomerRating = avgCustomerRating.toFixed(1))
-
-            // let avgCustStarRating = [];
-
-            // for (let i = 1; i < 6; i++) {
-            //     if (avgCustomerRating >= i) {
-            //         avgCustStarRating.push(<p className="p-1" key={'avg' + i}>{fullStarSvg}</p>);
-            //     } else {
-            //         if (avgCustomerRating <= (i - .5) && avgCustomerRating > (i - 1)) {
-            //             avgCustStarRating.push(<p className="p-1" key={'avg' + i}>{halfStartSvg}</p>);
-            //         } else {
-            //             avgCustStarRating.push(<p className="p-1" key={'avg' + i}>{starSvg}</p>);
-            //         }
-            //     }
-            // }
-
             return (
-                <div className="bb-item m-3 p-2 d-flex align-items-start flex-column rounded" style={{ width: '220px' }} key={index}>
+                <div className="bb-item m-3 p-2 d-flex align-items-center flex-column" style={{ width: '220px' }} key={index}>
                     <Link to={`/bb/${item._id}`}>
                         <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
                     </Link>
-                    <div className="item-content">
-                        <h2>{item.name}</h2>
+                    <div className="item-content mt-4">
+                        <h3>{item.name}</h3>
                         <p>From: {item.description}</p>
                         <div className="d-flex">
                             <p>Our<br />Rating:</p>
@@ -153,7 +129,7 @@ class BB extends React.Component {
                     </div>
                     <Link
                         to={`/bb/${item._id}`}
-                        className="btn btn-primary btn-block mt-auto p-2">
+                        className="view-more mt-auto p-2">
                         View
                     </Link>
                 </div>
@@ -163,33 +139,90 @@ class BB extends React.Component {
         //reverse array
         review.reverse();
 
-        return (
-            <div className="container">
-                <div className="row mb-5 mt-5">
-                    <div className="col">
-                        <h1 className="text-center" style={{ fontSize: '3rem' }}>B/B Reviews</h1>
-                        <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
-                    </div>                </div>
-                <div className="row mb-5">
-                    <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{ minWidth: '300px' }}>
-                        <label className="btn btn-secondary">
-                            <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({ filterBB: 'book' })} />
-                            Books
-                        </label>
-                        <label className="btn btn-secondary active">
-                            <input type="radio" name="all" id="all" autoComplete="off" onClick={() => this.setState({ filterBB: 'all' })} defaultChecked />
-                            All
-                         </label>
-                        <label className="btn btn-secondary">
-                            <input type="radio" name="beer" id="beer" autoComplete="off" onClick={() => this.setState({ filterBB: 'beer' })} />
-                            Beers
-                        </label>
+        const recentReviews = this.state.reviewItems.filter((item) => {
+            if (item.home) {
+                return true;
+            } else {
+                return false;
+            }
+        }).map((item, index) => {
+            let starRating = [];
+
+            for (let i = 1; i < 6; i++) {
+                if (item.myReview.rating >= i) {
+                    starRating.push(<p className="p-1" key={item._id + i}>{fullStarSvg}</p>);
+                } else {
+                    if (item.myReview.rating <= (i - .5) && item.myReview.rating > (i - 1)) {
+                        starRating.push(<p className="p-1" key={item._id + i}>{halfStartSvg}</p>);
+                    } else {
+                        starRating.push(<p className="p-1" key={item._id + i}>{starSvg}</p>);
+                    }
+                }
+            }
+ 
+            const custRating = handleStarRating(item.ratings);
+
+            return (
+                <div className="col" style={{ width: '220px' }} key={index}>
+                    <h1 className="text-center mb-4" style={{fontSize: '3rem'}}>{item.type === 'book' ? 'Book Of The Month': 'Beer Of The Week'}</h1>
+                    <div className="recent-review-content p-2">
+                        <Link to={`/bb/${item._id}`}>
+                            <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
+                        </Link>
+                        <div className="item-content">
+                            <h3>{item.name}</h3>
+                            <p>From: {item.description}</p>
+                            <div className="d-flex">
+                                <p>Our<br />Rating:</p>
+                                <div className="star d-flex ml-1">
+                                    {starRating}
+                                    <div>{item.myReview.rating}</div>
+                                </div>
+                            </div>
+                            <div className="cust-avg-rating d-flex">
+                                <p>Average<br />rating:</p>
+                                <div className="star ml-1 d-flex">{custRating.avgCustStarRating}{custRating.avgCustomerRating}</div></div>
+                        </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center" style={{ flexWrap: 'wrap' }}>
-                    {review}
+            )
+        })
+        return (
+            <>
+                <div className="row m-auto align-items-center vh-100 text-center" style={{ minHeight: '510px' }}>
+                    <div className="col align-self-center">
+                        <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">The Books and Beers Gallery</h1>
+                        <p className="lead">New beers every week and new books every month!</p>
+                        <div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div id="chevron-attraction" />
+                <div className="pt-6 pb-6" style={{ color: '#332212', backgroundColor: '#fff' }}>
+                    <div className="row mb-5 ml-auto mr-auto">
+                        {recentReviews}
+                    </div>
+                    <div className="row mb-5 ml-auto mr-auto">
+                        <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{ minWidth: '300px' }}>
+                            <label className="btn btn-secondary">
+                                <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({ filterBB: 'book' })} />
+                            Books
+                        </label>
+                            <label className="btn btn-secondary active">
+                                <input type="radio" name="all" id="all" autoComplete="off" onClick={() => this.setState({ filterBB: 'all' })} defaultChecked />
+                            All
+                         </label>
+                            <label className="btn btn-secondary">
+                                <input type="radio" name="beer" id="beer" autoComplete="off" onClick={() => this.setState({ filterBB: 'beer' })} />
+                            Beers
+                        </label>
+                        </div>
+                    </div>
+                    <div className="row m-auto d-flex justify-content-between bb-item-container" style={{ flexWrap: 'wrap' }}>
+                        {review}
+                    </div>
+                </div>
+            </>
         )
     }
 }

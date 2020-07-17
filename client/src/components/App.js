@@ -25,7 +25,7 @@ const UploadBB = lazy(() => import('./Men/UploadBB'));
 const Beer = lazy(() => import('./beer'));
 
 const App = ({ location }) => {
-  const [warning, setWarning] = useState(localStorage.getItem('warningModal'));
+  const [warning] = useState(localStorage.getItem('warningModal'));
 
   return (
     <>

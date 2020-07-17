@@ -3,8 +3,8 @@ import React, { Suspense } from 'react';
 const Team = React.lazy(() => import('./components/Team'));
 const CoolStuff = React.lazy(() => import('./components/CoolStuff'));
 const Platforms = React.lazy(() => import('./components/Platforms'));
-// const Store = React.lazy(() => import('./components/Store'));
-const Attraction = React.lazy(() => import('./components/Attraction'));
+const Store = React.lazy(() => import('./components/Store'));
+// const Attraction = React.lazy(() => import('./components/Attraction'));
 const Contact = React.lazy(() => import('./components/Contact'));
 
 class Home extends React.Component {
@@ -61,7 +61,7 @@ class Home extends React.Component {
         <CoolStuff scrollHeight={this.state.theposition} />
         <Platforms scrollHeight={this.state.theposition} />
         <Team scrollHeight={this.state.theposition}/>
-        <Attraction />
+        <Store />
         <Contact />
         </Suspense>
         </div>

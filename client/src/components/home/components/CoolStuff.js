@@ -10,7 +10,8 @@ class CoolStuff extends React.Component {
 
     this.state = {
       bb: [],
-      error: false
+      error: false,
+      translateX: '0%',
     }
   }
 
@@ -25,39 +26,96 @@ class CoolStuff extends React.Component {
         this.setState({ error: true })
       })
 
+      this.mounted = true;
+
+      this.setTimer('-100%');
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.translateX !== this.state.translateX) {
+      if (this.state.translateX === '-100%') {
+        this.setTimer('0%');
+      } else {
+        this.setTimer('-100%');
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+    if(this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.clearTimer();
+    }
+  }
+
+  setTimer = (percent) => {
+    // if (this.timerHandle) {
+    //   // Exception?
+    //   return;
+    // }
+    // Remember the timer handle
+    this.timerHandle = setTimeout(() => {
+      this.mounted && this.setState({ translateX: percent });
+      this.timerHandle = 0;
+    }, 5000);
+  };
+
+  clearTimer = () => {
+    // Is our timer running?
+    if (this.timerHandle) {
+        // Yes, clear it
+        clearTimeout(this.timerHandle);
+        this.timerHandle = 0;
+    }
+  };
 
 
   render() {
-    const { bb, error } = this.state;
+    const { bb, error, translateX } = this.state;
+
+    const handleBBDesRender = bb.map((bobj, index) => {
+      let intro;
+
+      if (bobj.type === 'book') {
+        intro = `The book of this month is ${bobj.name}! ${bobj.name} was written by ${bobj.description}.`;
+      } else {
+        intro = `The beer of this week is ${bobj.name}! ${bobj.name} is from ${bobj.description}. `;
+      }
+
+      return (
+        <p key={index}>
+          {intro}{bobj.bio}{bobj.myReview.comment}
+        </p>
+      )
+    })
 
     const handleBBRender = bb.map((bobj, index) => {
       let title;
       let rate;
-      let byFrom;
-  
-      if(bobj.type === 'book'){
+
+      if (bobj.type === 'book') {
         title = 'Book Of The Month'
         rate = 'Have you read it? Rate it.'
-        byFrom = 'By: '
-       }else {
-         title = 'Beer Of The Week'
-         rate = 'Have you tried it? Rate it.'
-         byFrom = 'From: '
-       }
-  
+      } else {
+        title = 'Beer Of The Week'
+        rate = 'Have you tried it? Rate it.'
+      }
+
       return (
-        <div className="col p-2" key={index}>
-        <h1 className="mb-4">{title}</h1>
-        <Link to='/bb'>
-          <img className="img-fluid rounded shadow mb-3 bb-img-home" src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
-          </Link>
-        <h2 className="">{bobj.name}</h2>
-        <p>{byFrom}{bobj.description}</p>
-        <p className="mb-0">{rate}</p>
-        <StarRating itemId={bobj._id} setError={() => alert("Sorry, something went wrong.")} />
-        <Link to={`/bb/${bobj._id}`} className="view-more">View More</Link>
-      </div>
+        <div className="slide" style={this.mounted && {
+          transform: `translateX(${translateX})`
+        }} key={index}>
+          <div className="p-2" key={index}>
+            <h1 className="mb-4">{title}</h1>
+            <Link to={`/bb/${bobj._id}`}>
+              <img className="img-fluid rounded shadow mb-3 bb-img-home" src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
+            </Link>
+            <p className="mb-0">{rate}</p>
+            <StarRating itemId={bobj._id} setError={() => alert("Sorry, something went wrong.")} />
+            <Link to={`/bb/${bobj._id}`} className="view-more">View</Link>
+          </div>
+        </div>
       )
     })
 
@@ -65,14 +123,23 @@ class CoolStuff extends React.Component {
       <>
         <div id="chevron-attraction" />
         <div className="pt-6 pb-6 text-center special-events" style={{ color: '#332212', backgroundColor: '#fff' }}>
-          <div className="row m-auto">
-            <div className="col">
-              <h1 className="text-center" style={{ fontSize: '3rem' }}>The B/B Awards</h1>
-              <div id="chevron" style={{ width: '100%', top: '20px', minWidth: '200px', maxWidth: '400px' }} />
-            </div>
-          </div>
           <div className="row m-auto mt-6 justify-content-center align-items-center">
-            {error ? <p>Sorry, couldn't load BB's</p> : isEmpty(handleBBRender) ? <p>Loading...</p> : handleBBRender}
+            <div className="col">
+              <div className="slide-container">
+                {error ? <p>Sorry, couldn't load BB's of the month</p> : isEmpty(handleBBRender) ? <p>Loading...</p> : handleBBRender}
+
+              </div>
+            </div>
+            <div className="col">
+              <div className="text-left p-4">
+                <h1 style={{ fontSize: '3rem' }}>The Book And Beer Of The Month</h1>
+                <div style={{
+                  padding: '1rem'
+                }}>
+                  {error ? <p>Sorry, couldn't load our summary</p> : isEmpty(handleBBRender) ? <p>Loading...</p> : handleBBDesRender}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </>

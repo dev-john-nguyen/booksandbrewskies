@@ -169,7 +169,7 @@ class BB extends React.Component {
                         <Link to={`/bb/${item._id}`}>
                             <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
                         </Link>
-                        <div className="item-content">
+                        <div className="item-content mt-4">
                             <h3>{item.name}</h3>
                             <p>From: {item.description}</p>
                             <div className="d-flex">

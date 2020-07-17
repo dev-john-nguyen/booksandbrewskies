@@ -593,6 +593,10 @@ a:hover {
     min-width: 100% !important;
     margin-bottom: 2rem;
   }
+
+  .team-col {
+    padding-bottom: 2rem;
+  }
   
 
 }

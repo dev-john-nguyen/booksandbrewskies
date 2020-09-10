@@ -163,7 +163,7 @@ class BB extends React.Component {
             const custRating = handleStarRating(item.ratings);
 
             return (
-                <div className="col" style={{ width: '220px' }} key={index}>
+                <div className="col" style={{ width: '220px', maxWidth: '600px', margin: 'auto' }} key={index}>
                     <h1 className="text-center mb-4" style={{fontSize: '3rem'}}>{item.type === 'book' ? 'Book Of The Month': 'Beer Of The Week'}</h1>
                     <div className="recent-review-content p-2">
                         <Link to={`/bb/${item._id}`}>

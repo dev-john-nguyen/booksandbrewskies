@@ -131,7 +131,10 @@ const Beer = ({ match }) => {
             <div className="container-fluid mt-4">
                 <div className="row m-auto">
                     <div className="col-6 text-right p-1 m-auto" style={{ minWidth: '290px' }}>
-                        <img src={window.location.origin + '/' + imageUrl} className="img-fluid rounded shadow" alt="item" />
+                        <img src={imageUrl} className="img-fluid rounded shadow" alt="item" style ={{
+                            width: '400px',
+                            height: '505px'
+                        }} />
                     </div>
                     <div className="d-block d-md-none d-lg-none d-xl-none w-100" />
                     <div className="col p-1 ml-2">

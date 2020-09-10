@@ -44,6 +44,7 @@ const stripeWebhookRouter = require('./services/webhooks/stripe');
 const podcastsRouter = require('./services/podcasts');
 const reviewsRouter = require('./services/reviews');
 const uploadReviews = require('./services/uploadReviews');
+const menRouter = require('./services/men');
 
 app.use('/products', productsRouter);
 app.use('/contact', contactsRouter);
@@ -53,6 +54,7 @@ app.use('/paid', ordersRouter);
 app.use('/podcasts', podcastsRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/upload/reviews', uploadReviews);
+app.use('/men/reviews', menRouter);
 
 // Serve Static Assets (React Build) in production
 if(process.env.NODE_ENV === 'production') {
@@ -64,15 +66,15 @@ if(process.env.NODE_ENV === 'production') {
   });
 }
 
-// if(process.env.NODE_ENV.trim() === 'test'){
-//   console.log("Testing Environment");
-//   //set static folder
-//   app.use(express.static('client/build'));
+if(process.env.NODE_ENV.trim() === 'test'){
+  console.log("Testing Environment");
+  //set static folder
+  app.use(express.static('client/build'));
 
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   });
-// }
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 
 const port = process.env.PORT || 5050;

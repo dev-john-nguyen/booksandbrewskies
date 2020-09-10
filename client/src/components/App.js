@@ -21,7 +21,7 @@ const Home = lazy(() => import('./home'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 const Shop = lazy(() => import('./shop'));
 const BB = lazy(() => import('./BB'));
-const UploadBB = lazy(() => import('./Men/UploadBB'));
+const Men = lazy(() => import('./Men'));
 const Beer = lazy(() => import('./beer'));
 
 const App = ({ location }) => {
@@ -75,7 +75,7 @@ const App = ({ location }) => {
             <Route path="/contact" exact component={Contact} />
             <Route path="/store" exact component={Shop} />
             <Route path="/bb" exact component={BB} />
-            <Route path="/men/bb/upload" exact component={UploadBB} />
+            <Route path="/men" exact component={Men} />
             <Route path="/bb/:id" exact component={Beer} />
             {location.pathname !== "/store/checkout" && <Route component={NotFoundPage} />}
           </Switch>

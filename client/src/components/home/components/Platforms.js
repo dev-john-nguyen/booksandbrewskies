@@ -16,7 +16,7 @@ const Platforms = () => {
       </div>
         <div className="row mt-5 mr-auto ml-auto pb-6">
           <div className='col'>
-          <iframe className="shadow" width="100%" height="auto" style={styleYoutube} src="https://www.youtube.com/embed/Usxls3krJCw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe className="shadow" width="100%" height="auto" alt='vlog' style={styleYoutube} src="https://www.youtube.com/embed/Usxls3krJCw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
         </div>
       </div>

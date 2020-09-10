@@ -109,7 +109,7 @@ class CoolStuff extends React.Component {
           <div className="p-2" key={index}>
             <h1 className="mb-4">{title}</h1>
             <Link to={`/bb/${bobj._id}`}>
-              <img className="img-fluid rounded shadow mb-3 bb-img-home" src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px' }} />
+              <img className="img-fluid rounded shadow mb-3 bb-img-home" src={bobj.imageUrl} alt="beer" style={{ minWidth: '200px', width: '400px', height: '505px' }} />
             </Link>
             <p className="mb-0">{rate}</p>
             <StarRating itemId={bobj._id} setError={() => alert("Sorry, something went wrong.")} />

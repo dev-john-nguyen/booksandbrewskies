@@ -59,7 +59,7 @@ class Contact extends React.Component {
         }
     return (
         <div className="pt-6 pb-6 text-center special-events" id="contact" style={{ color: '#332212', backgroundColor: '#fff' }}>
-          <div className="row m-auto mt-6 align-items-center contact-section">
+          <div className="row m-auto align-items-center contact-section">
               <div className="d-block text-white ml-4">
               <h1 className="text-center">Contact Us</h1>
                   <p className="mb-4">You can ask us anything</p>

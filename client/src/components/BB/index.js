@@ -20,6 +20,9 @@ class BB extends React.Component {
     }
 
     componentDidMount = async () => {
+
+        window.scrollTo(0, 0);
+        
         let reviewItems;
 
         try {
@@ -192,7 +195,7 @@ class BB extends React.Component {
                 <div className="row m-auto align-items-center vh-100 text-center" style={{ minHeight: '510px' }}>
                     <div className="col align-self-center">
                         <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">The Books and Beers Gallery</h1>
-                        <p className="lead">New beers every week and new books every month!</p>
+                        <p className="lead">A new beer every week and a new book every month!</p>
                         <div>
                         </div>
                     </div>

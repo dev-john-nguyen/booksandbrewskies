@@ -94,7 +94,7 @@ const Header = ({ location }) => {
               <LinkRouter className="nav-link" to="/bb">Reviews</LinkRouter>
             </li>
             <li className="nav-item">
-              {location.pathname !== "/" ? <LinkRouter className="nav-link" to="/">Team</LinkRouter> :
+              {location.pathname !== "/" ? <LinkRouter className="nav-link" to="/?team">Team</LinkRouter> :
                 <Link
                   activeClass='active'
                   to="team"
@@ -109,7 +109,7 @@ const Header = ({ location }) => {
 </Link>}
             </li>
             <li className="nav-item">
-              {location.pathname !== "/" ? <LinkRouter className="nav-link" to="/">Contact</LinkRouter> :
+              {location.pathname !== "/" ? <LinkRouter className="nav-link" to="/?contact">Contact</LinkRouter> :
                 <Link
                   activeClass='active'
                   to="contact"

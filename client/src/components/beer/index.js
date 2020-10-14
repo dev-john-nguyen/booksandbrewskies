@@ -40,7 +40,8 @@ const Beer = ({ match }) => {
     }
 
     useEffect(() => {
-
+        window.scrollTo(0,0);
+        
         async function fetchBeer() {
             await axios.get('/reviews/beer', { params: { id: match.params.id } })
                 .then((res) => {
@@ -128,7 +129,12 @@ const Beer = ({ match }) => {
         }
 
         return (
-            <div className="container-fluid mt-4">
+            <div className="container-fluid shadow" style={{
+                backgroundColor: 'rgb(255, 255, 255)',
+                color: 'rgb(51, 34, 18)',
+                paddingTop: '3rem',
+                paddingBottom: '3rem'
+            }}>
                 <div className="row m-auto">
                     <div className="col-6 text-right p-1 m-auto" style={{ minWidth: '290px' }}>
                         <img src={imageUrl} className="img-fluid rounded shadow" alt="item" style ={{

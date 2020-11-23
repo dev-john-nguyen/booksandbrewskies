@@ -8,17 +8,23 @@
 
     @media only screen and (max-width: $bp-large) {
         grid-template-columns: 5rem repeat(4, 1fr) 5rem;
+
+        & > *:nth-child(3), & > *:nth-child(5) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        & > *:nth-child(6) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     @media only screen and (max-width: $bp-medium) {
         grid-column-gap: 0;
     }
 
-    @media only screen and (max-width: $bp-smallest) {
-       & > *:not(:first-child):not(:nth-child(2)) {
-           flex-direction: column;
-           align-items: center;
-       }
+    @media only screen and (max-width: $bp-medium) {
 
     }
 
@@ -176,6 +182,7 @@
     display: flex;
     justify-content: space-between;
 
+
     &__text {
         order: 2;
         flex-basis: 40%;
@@ -184,10 +191,8 @@
         position: relative;
         @include content-text-style;
 
-        @media only screen and (max-width: $bp-smallest) {
-            margin-bottom: 10rem;
-            width: 80%;
-            order: 0;
+        @media only screen and (max-width: $bp-large) {
+            margin-bottom: 8rem;
         }
 
 
@@ -219,6 +224,7 @@
         flex-direction: column;
         color: #fff;
         fill: $color-secondary;
+        position: relative;
 
         &__host {
             background-size: cover;
@@ -226,70 +232,38 @@
             box-shadow: $box-shadow-primary;
             border-radius: $img-radius;
 
-            @media only screen and (max-width: $bp-medium) {
+            transition: all .5s;
+
+            @media only screen and (max-width: $bp-smallest) {
                 padding: 18rem 6rem;
             }
             
 
             &-1{
                 background-image: url('../../components/images/team/christian.png');
-                transition: all .2s;
-
-                @media only screen and (max-width: $bp-medium) {
-                    padding: 18.2rem 4rem;
-                }
-
-                @media only screen and (max-width: $bp-smallest) {
-                    transform: translate(7rem, 7rem);
-                }
 
                 &:hover, &:active, &:focus {
-                    z-index: 2;
-                    transform: translateY(-1rem);
-                    box-shadow: $box-shadow-dark;
-
-                    &__content{
-                        opacity: 1;
-                        transform: translateY(-1rem);
-                    }
-
-                    @media only screen and (max-width: $bp-smallest) {
-                        transform: translate(0, 0);
-                    }
+                    transform: translate(1rem,1rem);
+                    z-index: 10;
                 }
-
+                
+                &:hover &__content, &:active &__content, &:focus &__content {
+                    opacity: 1;
+                }
             }
 
 
             &-2{
-                position: absolute;
-                transform: translate(10rem, 6rem);
-                transition: all .2s;
-
                 background-image: url('../../components/images/team/Shane.png');
+                position: absolute;
+                transform: translate(10rem, 10rem);
 
+                &:hover, &:active, &:focus {
+                    transform: translate(0rem, 0rem);
+                }
 
-            @media only screen and (max-width: $bp-medium) {
-                transform: translate(2rem, 10rem);
-            }
-
-            @media only screen and (max-width: $bp-smallest) {
-                transform: translate(-6em, 0);
-            }
-
-
-                &:hover, &:focus, &:active { 
-                    transform:  translate(10rem, 4rem);
-                    box-shadow: $box-shadow-dark;
-
-                    @media only screen and (max-width: $bp-smallest) {
-                        transform: translate(0, 0);
-                    }
-
-                    &__content{
-                        opacity: 1;
-                        transform: translateY(-1rem);
-                    }
+                &:hover &__content, &:active &__content, &:focus &__content {
+                    opacity: 1;
                 }
             }
 
@@ -344,6 +318,7 @@
     display: flex;
     justify-content: space-between;
 
+
     @media only screen and (max-width: $bp-smallest) {
          margin-top: 0rem;
     }
@@ -355,6 +330,7 @@
         font-size: 1.5rem;
         margin-top: 3rem;
         width: 50%;
+        min-width: 10rem;
         color: $color-secondary;
         @include button-base;
     }
@@ -380,7 +356,6 @@
         position: relative;
 
         transition: all .2s;
-
 
         @media only screen and (max-width: $bp-smallest) {
             width: 100%;

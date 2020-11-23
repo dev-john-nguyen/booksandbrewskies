@@ -1,0 +1,115 @@
+.admin {
+    display: grid;
+    grid-template-columns: minmax(0, .5fr) repeat(3, 1fr) minmax(0, .5fr);
+    grid-template-rows: 10rem 20rem min-content;
+
+    grid-column-gap: 5rem;
+    grid-row-gap: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 5px repeat(3, 1fr) 5px;
+        grid-column-gap: 0;
+    }
+    
+    @include page-header;
+
+
+
+
+    &__items {
+        grid-column: 2 / 5;
+        grid-row: 3 / 4;
+        display: grid;
+        grid-template-columns: repeat(4,min-content);
+        grid-gap: 1rem;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        @media only screen and (max-width: $bp-large) {
+            grid-template-columns: repeat(3, min-content);
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(2, min-content);
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-template-columns: min-content
+        }
+
+        & > * {
+            margin: 4rem;
+        }
+    }
+}
+
+.admin-form {
+    z-index: 100;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+
+    button {
+        font-size: 1.2rem;
+    }
+
+    &__close {
+        font-size: 20px;
+        position: absolute;
+        right: 5px;
+        top: 15px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        position: relative;
+        border-radius: 5px;
+        width: 50%;
+        min-width: 300px;
+        height: min-content;
+        display: flex;
+        flex-direction: column;
+        box-shadow: $box-shadow-primary;
+        overflow: scroll;
+    }
+
+    &__title {
+        display: flex;
+        padding: 1rem 1rem;
+        align-items: center;
+        font-family: $font-primary;
+        font-size: 2rem;
+        justify-content: center;
+        background-image: linear-gradient(105deg,rgba($color-secondary, 0.5) 0%, rgba($color-secondary, 1) 100%);
+        min-height: 5rem;
+    }
+
+    &__body {
+        line-height: 1.2;
+        background-color: rgba(#fff, 1);
+        padding: 4rem 2rem 3rem 2rem;
+        font-family: $font-secondary;
+        font-size: 1.5rem;
+        height: min-content;
+
+        & > :first-child{
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    }
+
+    &__footer {
+        background-color: rgba(#fff, 1);
+        text-align: center;
+        padding: 2rem 1rem;
+        font-family: $font-secondary;
+        font-size: 2rem;
+    }
+
+}

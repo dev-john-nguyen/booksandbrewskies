@@ -5,9 +5,10 @@ import history from './history';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk'
-
 import App from './components/App';
 import reducers from './services';
+
+import './sass/main.scss';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,8 +18,8 @@ const store = createStore(
 );
 
 ReactDOM.render(<Provider store={store}>
-        <Router history={history}>
-            <App/>
-        </Router>
-  </Provider>,
+  <Router history={history}>
+    <App />
+  </Router>
+</Provider>,
   document.querySelector('#root'));

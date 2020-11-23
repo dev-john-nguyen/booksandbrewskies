@@ -12,7 +12,7 @@ app.use(sslRedirect());
 //
 // mongo "mongodb+srv://cluster0-y81ja.mongodb.net/test"  --username admin-nguyen --password q22Q2dIB0ApxErbM
 
-mongoose.connect('mongodb+srv://admin-nguyen:q22Q2dIB0ApxErbM@cluster0-y81ja.mongodb.net/booksandbrewskiesDB',{
+mongoose.connect('mongodb+srv://admin-nguyen:q22Q2dIB0ApxErbM@cluster0-y81ja.mongodb.net/booksandbrewskiesDB', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true,
@@ -20,11 +20,11 @@ mongoose.connect('mongodb+srv://admin-nguyen:q22Q2dIB0ApxErbM@cluster0-y81ja.mon
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', function () {
   console.log('Successfully Connected to beersandbrewskiesDB')
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   if (req.originalUrl === '/webhook') {
@@ -57,17 +57,7 @@ app.use('/upload/reviews', uploadReviews);
 app.use('/men/reviews', menRouter);
 
 // Serve Static Assets (React Build) in production
-if(process.env.NODE_ENV === 'production') {
-  //set static folder
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
-
-if(process.env.NODE_ENV.trim() === 'test'){
-  console.log("Testing Environment");
+if (process.env.NODE_ENV === 'production') {
   //set static folder
   app.use(express.static('client/build'));
 
@@ -76,10 +66,20 @@ if(process.env.NODE_ENV.trim() === 'test'){
   });
 }
 
+// if (process.env.NODE_ENV.trim() === 'test') {
+//   console.log("Testing Environment");
+//   //set static folder
+//   app.use(express.static('client/build'));
+
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
+
 
 const port = process.env.PORT || 5050;
 
 
-app.listen(port, function(){
+app.listen(port, function () {
   console.log("Server Started on port 5050");
 });

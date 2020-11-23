@@ -58,10 +58,10 @@ class CartProduct extends Component {
           onMouseOver={() => this.handleMouseOver()}
           onMouseOut={() => this.handleMouseOut()}
           onClick={() => removeProduct(product)}
-        />
+        >x</div>
         <Thumb
           classes="shelf-item__thumb"
-          src={require(`../../../static/products/${product.sku}_2.jpg`)}
+          src={'https://vangogh.teespring.com/v3/image/PrximIkrAEA63AH8HjyFOy8SBGk/480/560.jpg'}
           alt={product.title}
         />
         <div className="shelf-item__details">

@@ -19,7 +19,7 @@ const Product = ({ product, addProduct }) => {
     >
       <Thumb
         classes="shelf-item__thumb"
-        src={require(`../../../static/products/${product.sku}_1.jpg`)}
+        src={'https://vangogh.teespring.com/v3/image/PrximIkrAEA63AH8HjyFOy8SBGk/480/560.jpg'}
         alt={product.title}
       />
       <p className="shelf-item__title">{product.title}</p>

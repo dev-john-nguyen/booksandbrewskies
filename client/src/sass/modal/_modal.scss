@@ -1,0 +1,70 @@
+.modal {
+    z-index: 100;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__close {
+        font-size: 10px;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        position: relative;
+        border-radius: 5px;
+        width: 30rem;
+        height: min-content;
+        display: flex;
+        flex-direction: column;
+        box-shadow: $box-shadow-primary;
+    }
+
+    &__title {
+        display: flex;
+        padding: 1rem 1rem;
+        align-items: center;
+        font-family: $font-primary;
+        font-size: 2rem;
+        justify-content: center;
+        background-image: linear-gradient(105deg,rgba($color-secondary, 0.5) 0%, rgba($color-secondary, 1) 100%)
+    }
+
+    &__body {
+        line-height: 1.2;
+        background-color: rgba(#fff, 1);
+        padding: 4rem 2rem 3rem 2rem;
+        font-family: $font-secondary;
+        font-size: 1.5rem;
+        height: min-content;
+
+        & > :first-child{
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    }
+
+    &__footer {
+        background-color: rgba(#fff, 1);
+        text-align: center;
+        padding: 2rem 1rem;
+        font-family: $font-secondary;
+        font-size: 1.5rem;
+        height: 25%;
+        button {
+            font-size: inherit;
+            font-family: inherit;
+            padding: 1rem 2rem;
+            width: 80%;
+            @include button-base;
+        }
+    }
+}

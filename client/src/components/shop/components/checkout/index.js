@@ -13,7 +13,7 @@ import { clearCart } from '../../../../services/cart/actions';
 import { clearCartTotal } from '../../../../services/total/actions';
 import history from '../../../../history';
 import Mymodal from '../../../Modal';
-import { Modal } from 'react-bootstrap';
+import NotFoundPage from '../../../NotFoundPage';
 
 class CheckoutForm extends React.Component {
 
@@ -26,6 +26,7 @@ class CheckoutForm extends React.Component {
     state: '',
     zip: '',
     client_secret: '',
+    fetch_secret_error: false,
     session_error: false,
     order_completed: false,
     payment_failed: false,
@@ -43,11 +44,11 @@ class CheckoutForm extends React.Component {
       try {
         response = await getStripe(cartTotal, cartProducts);
       } catch (e) {
-        return this.setState({ session_error: true });
+        return this.setState({ fetch_secret_error: true });
       }
 
       if (response.error) {
-        this.setState({ session_error: response.error });
+        this.setState({ fetch_secret_error: true });
       } else {
         this.setState({ client_secret: response.data });
       }
@@ -136,11 +137,26 @@ class CheckoutForm extends React.Component {
     });
   }
 
+  handleModal = () => {
+    const { name, client_secret, session_error, order_completed, orderId, payment_failed } = this.state;
+    const { cartProducts } = this.props
 
+    if (cartProducts.length <= 0) {
+      return (
+        <Mymodal
+          showValue={true}
+          closeDirect='/store'
+          buttonName='Store'
+          title='Cart Is Empty'
+          description='Go pick something from our store!'
+          svgType="empty"
+        />
+      );
+    }
 
-  render() {
-    const { name, phone, email, line1, city, state, zip, client_secret, session_error, order_completed, orderId, buttonLoading, payment_failed } = this.state;
-    const { cartTotal, cartProducts } = this.props;
+    if (client_secret === '') {
+      return <Spinner />;
+    }
 
     if (order_completed) {
       const descriptionOrderCompleted = `Your confirmation number is ${orderId}.
@@ -159,19 +175,6 @@ class CheckoutForm extends React.Component {
       )
     }
 
-    if (cartProducts.length <= 0) {
-      return (
-        <Mymodal
-          showValue={true}
-          closeDirect='/store'
-          buttonName='Store'
-          title='Cart Is Empty'
-          description='Go pick something from our store!'
-          svgType="empty"
-        />
-      );
-    }
-
     if (session_error) {
       const clientErrorDescription = `Looks like something went wrong.
       I apologize for the inconvience. No payment was taken`;
@@ -185,10 +188,6 @@ class CheckoutForm extends React.Component {
           svgType="error"
         />
       );
-    }
-
-    if (client_secret === '') {
-      return <Spinner />;
     }
 
     if (payment_failed) {
@@ -205,6 +204,11 @@ class CheckoutForm extends React.Component {
         />
       )
     }
+  }
+
+  render() {
+    const { name, phone, email, line1, city, state, zip, buttonLoading, fetch_secret_error } = this.state;
+    const { cartTotal, cartProducts } = this.props;
 
     const formatTotalPrice = formatPrice(
       cartTotal.totalPrice,
@@ -213,14 +217,14 @@ class CheckoutForm extends React.Component {
 
     const formStuff = (
       <>
-      {/* Testing Notification */}
-      <div className="alert alert-warning alert-dismissible fade show text-center" role="alert">
-        <strong>This is for testing purposes. Don't enter your credit card information. Use 4242 4242 4242 4242 04/24 4242 for a successful payment.</strong>
-        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      {/* Testing Notification End */}
+        {/* Testing Notification */}
+        <div className="alert alert-warning alert-dismissible fade show text-center" role="alert">
+          <strong>This is for testing purposes. Don't enter your credit card information. Use 4242 4242 4242 4242 04/24 4242 for a successful payment.</strong>
+          <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {/* Testing Notification End */}
         <CartSection cartProducts={cartProducts} cartTotal={cartTotal} formatTotalPrice={formatTotalPrice} />
         <form onSubmit={this.handleSubmit}>
           <IdentitySection name={name} phone={phone} email={email} handleInputChange={this.handleInputChange} />
@@ -235,27 +239,35 @@ class CheckoutForm extends React.Component {
     );
 
     const walletSvg = (
-      <svg className="bi bi-wallet" style={{ position: 'relative', bottom: "5px" }} width="3rem" height="3rem" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <svg className="bi bi-wallet" width="100%" height="100%" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" d="M3.5 5a.5.5 0 00-.5.5v2h5a.5.5 0 01.5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 01.5-.5h5v-2a.5.5 0 00-.5-.5h-13zM17 8.5h-4.551a2.678 2.678 0 01-.443 1.042c-.393.546-1.043.958-2.006.958-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 017.551 8.5H3v6a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-6zm-15-3A1.5 1.5 0 013.5 4h13A1.5 1.5 0 0118 5.5v9a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 14.5v-9z" clipRule="evenodd">
         </path>
       </svg>
     );
 
+    if (fetch_secret_error) return <NotFoundPage text='Oops! Something went wrong' body="Looks like we failed to establish a 
+    connect with our 3rd party vender. Please contact us directly" />
+
     return (
-      <Modal show={true}
-        onHide={() => history.push('/store')}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <div className="row">
-              {walletSvg}
+      <>
+        {this.handleModal()}
+        <div className="checkout">
+          <div className="checkout__header">
+            <div className="checkout__text">
+              <h1>Checkout</h1>
             </div>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{formStuff}</Modal.Body>
-      </Modal>
+          </div>
+          <div className="checkout__form form">
+            <div className="form__header">
+              {walletSvg}
+              <figure className="form__close" onClick={() => history.push('/store')}>X</figure>
+            </div>
+            <div className="form__content">
+              {formStuff}
+            </div>
+          </div>
+        </div>
+      </>
     );
 
   }

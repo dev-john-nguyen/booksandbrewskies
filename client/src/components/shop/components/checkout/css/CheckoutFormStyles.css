@@ -5,3 +5,19 @@
 .spinner-border-sm {
   margin-right: 5px;
 }
+
+
+.list-group-item {
+  padding: 1rem 1rem;
+  font-size: inherit;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-summary {
+  font-size: inherit;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}

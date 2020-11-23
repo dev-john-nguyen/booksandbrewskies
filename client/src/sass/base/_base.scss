@@ -1,0 +1,204 @@
+//Colors
+$color-primary-dark: rgb(19, 15, 10);
+$color-primary-light: rgb(51, 34, 18);
+$color-secondary: #eabf00;
+$color-white: #ffffff;
+
+//Font Styles
+$font-primary: 'Baskerville', sans-serif;
+$font-secondary: 'sans-serif';
+$font-weight-h1: 560;
+
+//General Styles
+$box-shadow-yellow: 0 0 10px 0 #eabf00;
+$box-shadow-primary: 0 .5rem 1rem rgba(0,0,0,.15);
+$box-shadow-dark: 0 1rem 1rem rgba(0,0,0,.25);
+
+
+$img-radius: .25rem;
+
+//Responsive Mobile Design Breakpoints
+$bp-largest: 75em;   // 1200px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 50em;    // 800px
+$bp-smallest: 31.25em; // 500px
+
+
+//MIXINS
+
+@mixin highlight-text {
+    background-image: linear-gradient(rgba($color-secondary, .8), rgba($color-secondary, .8));
+    background-position: 0px 0.6em;
+    background-repeat: repeat-x;
+    background-size: 1px 0.5em;
+}
+
+@mixin page-header {
+    &__header {
+        grid-column: 1 / -1;
+        grid-row: 1 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color-primary-dark, 1);
+        background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.1) 100%), url('../../components/images/home/studio.jpg');
+        color: #fff;
+    }
+
+    &__text {
+        display: block;
+        margin-left: 1rem;
+        text-align: center;
+        
+        h1 {
+            font-family: $font-primary;
+            font-size: 5rem;
+            font-weight: $font-weight-h1;
+            display: inline;
+            color: #fff;
+            @include highlight-text;
+        }
+    }
+}
+
+@mixin button-base {
+    &, &:visited, &:focus {
+        border-radius: 5px;
+        border: 2px solid $color-secondary;
+        background-color: transparent;
+        box-shadow: $box-shadow-primary;
+        transition: all .2s;
+        outline: none;
+    }
+
+    &:hover { 
+        background-color: rgba($color-secondary, .9);
+        color: $color-white;
+        border: 2px solid $color-secondary;
+        box-shadow: $box-shadow-dark;
+        outline: none;
+    }
+
+    &:active {
+        transform: translateY(-1rem);
+    }
+}
+
+@mixin button-hover {
+    box-shadow: 0 .5rem 1rem rgba($color-secondary, .3);
+    transform: translateY(-.2rem);
+}
+
+@mixin content-text-style {
+    h1 {
+        font-family: $font-primary;
+    font-size: 5rem;
+    font-weight: $font-weight-h1;
+    display: inline;
+    color: $color-primary-dark;
+    @include highlight-text;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 4rem; // 10px/16px = 62.5% -> 1rem = 10px
+}
+    }
+    
+
+    & p:first-of-type{
+        margin-top: 2rem;
+    }
+
+    p {
+        font-family: $font-secondary;
+        font-size: 1.5rem;
+        margin-left: 2rem;
+    }
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 50%; // 10px/16px = 62.5% -> 1rem = 10px
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 45%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+}
+
+body {
+    box-sizing: border-box;
+    line-height: 1;
+    letter-spacing: .5px;
+
+    & #root {
+        min-height: 100vh;
+    }
+
+    button {
+        letter-spacing: .5px;
+    }
+
+    // position: absolute;
+    // width: 100vw;
+
+    //the body wasn't scaling with the width the view port on mobile devices
+    //something's wrong with scalling
+
+    h1 {
+        font-family: $font-primary;
+    }
+    p {
+        font-family: $font-secondary;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(105deg,rgba(51, 34, 18, 0.1) 0%, rgba(51, 34, 18, 0.9) 100%), url('../../components/images/home/studio.jpg');
+    background-position: bottom;
+    color: #fff;
+    font-family: $font-secondary;
+    padding: 3rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+        padding: 4rem;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &__content {
+        display: flex;
+        font-size: 1.5rem;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+           margin-bottom: 2rem;
+        }
+
+        & img {
+            margin-right: 2rem;
+        }
+    }
+
+    img {
+        margin-right: 1rem;
+
+
+    }
+}

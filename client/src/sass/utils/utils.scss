@@ -1,0 +1,120 @@
+    /* Fading animation */
+    .display-none {
+        display: none !important;
+    }
+    
+    .fadeIn {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: .5s;
+        animation-name: fadeIn;
+        animation-duration: .5s;
+      }
+      
+      @-webkit-keyframes fadeIn {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+
+    .slide-out {
+      animation-name: slide-out;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes slide-out{
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(30rem);
+      }
+
+
+      // from {
+      //   opacity: 1;
+      //   transform: translateX(0);
+      // }
+      // to {
+      //   opacity: 0;
+      //   transform: translateX(-4rem);
+      // }
+    }
+
+    .slide-in {
+      animation-name: slide-in;
+      animation-duration: 1.5s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide-in {
+      0% {
+        transform: translateX(30rem);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+
+
+
+      //items
+      .arrow {
+        border: solid $color-secondary;
+        border-width: 0 5px 5px 0;
+        display: inline-block;
+        padding: 3px;
+        box-shadow: 3px 3px 5px rgba(0,0,0,.15);
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
+
+      .invalid-feedback {
+        font-family: $font-secondary;
+        font-size: 1.2rem;
+        color: #dc3545;
+        margin-top: .5rem;
+        margin-left: .5rem;
+      }
+
+
+      .star {
+        & > *:not(:first-child){
+            margin-left: 5px;
+        }
+    }
+    
+    .rated {
+        color: $color-secondary;
+    }
+    
+    .bi-check-circle {
+        color: green;
+    }
+
+    .spinner {
+      min-height: 100vh;
+      z-index: 100;
+    }
+    

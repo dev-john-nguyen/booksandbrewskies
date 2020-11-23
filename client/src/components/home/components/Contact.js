@@ -1,73 +1,83 @@
 import React from 'react';
-import ContactForm from '../../contact/components/ContactForm';
+import ContactForm from '../../contact/ContactForm';
 import axios from 'axios'
 import Mymodal from '../../Modal';
 
 class Contact extends React.Component {
     constructor(props) {
-      super(props);
-      this.state = {
-        error: false,
-        loading: false,
-        success: false,
-        duplicate: false,
-        firstName: '',
-        lastName: ''
-      };
+        super(props);
+        this.state = {
+            error: false,
+            loading: false,
+            success: false,
+            duplicate: false,
+            firstName: '',
+            lastName: ''
+        };
     }
-  
-    onSubmit = async(formValues) => {
-  
-      await axios.post('/contact', {...formValues})
-        .then(res => {
-          this.setState({success: true})
-        })
-        .catch(err => this.setState({ error: true }));
+
+    onSubmit = async (formValues) => {
+
+        await axios.post('/contact', { ...formValues })
+            .then(res => {
+                this.setState({ success: true })
+            })
+            .catch(err => this.setState({ error: true }));
     }
-  
-    render() {
-        const {error, success, loading, firstName, lastName} = this.state;
-        if(error){
-          const clientErrorDescription = `Looks like we are having problems on our side. I apologize
+
+    handleModalRender = () => {
+        const { error, success, firstName, lastName } = this.state;
+
+        if (error) {
+            const clientErrorDescription = `Looks like we are having problems on our side. I apologize
           for the inconvience. Please feel free to email us at beersandbrewskies@gmail.com.`
-    
-          return (
+
+            return (
                 <Mymodal
-                showValue={true}
-                closeDirect = '/'
-                buttonName = 'Close'
-                title='Oops!'
-                description= {clientErrorDescription}
-                svgType="error"
+                    showValue={true}
+                    closeDirect='/'
+                    buttonName='Close'
+                    title='Oops!'
+                    description={clientErrorDescription}
+                    svgType="error"
                 />
-          );
+            );
         }
-    
-        if(success){
-          const descriptionOrderCompleted = `We will get back to you as soon as possible!`;
-    
-          return(
-            <Mymodal
-            showValue={true}
-            closeDirect = '/'
-            buttonName = 'OK'
-            title={`Thank You ${firstName} ${lastName}!`}
-            description= {descriptionOrderCompleted}
-            svgType="success"
-            />
-          )
+
+        if (success) {
+            const descriptionOrderCompleted = `We will get back to you as soon as possible!`;
+
+            return (
+                <Mymodal
+                    showValue={true}
+                    closeDirect='/'
+                    buttonName='OK'
+                    title={`Thank You ${firstName} ${lastName}!`}
+                    description={descriptionOrderCompleted}
+                    svgType="success"
+                />
+            )
         }
-    return (
-        <div className="pt-6 pb-6 text-center special-events" id="contact" style={{ color: '#332212', backgroundColor: '#fff' }}>
-          <div className="row m-auto align-items-center contact-section">
-              <div className="d-block text-white ml-4">
-              <h1 className="text-center">Contact Us</h1>
-                  <p className="mb-4">You can ask us anything</p>
-                <ContactForm onSubmit={this.onSubmit} loading={loading}/>
-              </div>
-          </div>
-        </div>
-    )
+
+    }
+
+    render() {
+        const { loading } = this.state;
+
+        return (
+            <>
+                {this.handleModalRender()}
+                <div className="contact">
+                    <div className="contact__content">
+                        <div className="contact__content__text">
+                            <h1 className="">Contact Us</h1>
+                            <p className="">You can ask us anything</p>
+                        </div>
+                        <ContactForm onSubmit={this.onSubmit} loading={loading} />
+                    </div>
+                </div>
+            </>
+        )
     }
 }
 

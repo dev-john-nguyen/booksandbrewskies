@@ -5,7 +5,7 @@ import { handleStarRating } from '../BB/utils';
 import { isEmpty } from 'lodash';
 import StarRating from '../BB/components/StarRating';
 import { insert_comment } from '../../services/bb/actions';
-import Modal from '../Modal';
+import NotFoundPage from '../NotFoundPage';
 
 const Beer = ({ match }) => {
     const [beer, setBeer] = useState();
@@ -40,8 +40,8 @@ const Beer = ({ match }) => {
     }
 
     useEffect(() => {
-        window.scrollTo(0,0);
-        
+        window.scrollTo(0, 0);
+
         async function fetchBeer() {
             await axios.get('/reviews/beer', { params: { id: match.params.id } })
                 .then((res) => {
@@ -56,18 +56,8 @@ const Beer = ({ match }) => {
 
     }, [match.params.id])
 
-    if (error) {
-        return (
-            <Modal
-                showValue={true}
-                closeDirect='/bb'
-                buttonName='Visit Review Page'
-                title='Empty'
-                description="Item not found. Please visit our review page."
-                svgType="empty"
-            />
-        )
-    }
+    if (error) return <NotFoundPage text='Oops! Something went wrong.' body="Couldn't find what you were looking for" />
+
 
     if (beer) {
         const { myReview, ratings, type, name, imageUrl, description, comments, _id, bio, style } = beer;
@@ -117,10 +107,10 @@ const Beer = ({ match }) => {
         if (!isEmpty(comments)) {
             mapComments = comments.map((item, index) => {
                 return (
-                    <div className="media" key={index}>
+                    <div className="beer__comments_item" key={index}>
                         <img src={window.location.origin + "/media/logo.png"} className="mr-3" alt="BB" />
-                        <div className="media-body">
-                            <p className="mt-0 mb-0" style={{ fontSize: "1rem" }}>{item.name}</p>
+                        <div className="beer__comments_item-text">
+                            <p className="mt-0 mb-0">{item.name}</p>
                             <p>{item.comment}</p>
                         </div>
                     </div>
@@ -129,67 +119,65 @@ const Beer = ({ match }) => {
         }
 
         return (
-            <div className="container-fluid shadow" style={{
-                backgroundColor: 'rgb(255, 255, 255)',
-                color: 'rgb(51, 34, 18)',
-                paddingTop: '3rem',
-                paddingBottom: '3rem'
-            }}>
-                <div className="row m-auto">
-                    <div className="col-6 text-right p-1 m-auto" style={{ minWidth: '290px' }}>
-                        <img src={imageUrl} className="img-fluid rounded shadow" alt="item" style ={{
-                            width: '400px',
-                            height: '505px'
-                        }} />
-                    </div>
-                    <div className="d-block d-md-none d-lg-none d-xl-none w-100" />
-                    <div className="col p-1 ml-2">
-                        <h2 className="modal-title">{name}</h2>
-                        <div className="d-flex">Type: <p className="mb-2 ml-2 text-capitalize">{type}</p></div>
-                        <div className="d-flex">Style: <p className="mb-2 ml-2 text-capitalize">{style}</p></div>
-                        <div className="d-flex">From: <p className="mb-2 ml-2">{description}</p></div>
-                        <div className="d-flex"><p>Our<br />Rating:</p><div className="star d-flex mb-2 ml-2">{starRating}{rating}</div></div>
-                        <div className="d-flex"><p>Average<br />Rating:</p><div className="star d-flex mb-2 ml-2">{custStar.avgCustStarRating}{custStar.avgCustomerRating}</div></div>
-                        <div className="d-flex">Our<br />Comment:<p className="mb-2 ml-2 text-capitalize">{comment}</p></div>
-                        <div className="d-flex">Description:<p className="mb-2 ml-2 text-capitalize">{bio}</p></div>
+            <div className="beer">
+                <div className="beer__header">
+                    <div className="beer__text">
+                        <h1>{name}</h1>
                     </div>
                 </div>
-                <div className="row m-auto w-100" style={{ maxWidth: '870px' }}>
-                    <div className="col">
-                        <div className="modal-body">
-                            {(!isEmpty(mapComments)) ? mapComments : <p>No Comments</p>}
-                            {empty && <p className="text-danger">Please fill out all fields</p>}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <input type="text"
-                                        className="form-control"
-                                        placeholder="Name" name="Name"
-                                        onChange={(e) => setFormName(e.target.value)}
-                                        value={formName}
-                                         />
-                                </div>
-
-                                <div className="form-group">
-                                    <textarea type="text"
-                                        className="form-control"
-                                        maxLength='500'
-                                        placeholder="What do you think?"
-                                        name="Comment"
-                                        onChange={(e) => setFormComment(e.target.value)}
-                                        value={formComment} style={{ minHeight: '150px' }}
-                                         />
-                                </div>
-                                <p className="m-0">Rating</p>
-                                <StarRating itemId={_id} setError={() => setError(true)} />
-
-                                <div className="modal-footer">
-                                    <button type="submit" className='btn btn-primary btn-block'>
-                                        {loading && <span className="spinner-border spinner-border-sm mb-1" role="status" aria-hidden="true"></span>}
-                Submit
-                </button>
-                                </div>
-                            </form>
+                <div className="beer__content">
+                    <div className="beer__content__section">
+                        <div className="beer__content__img" >
+                            <img src={imageUrl} className="img-fluid rounded shadow" alt="item" style={{
+                                width: '400px',
+                                height: '505px'
+                            }} />
                         </div>
+                        <div className="beer__content__text">
+                            <h2 className="beer__content_title">{name}</h2>
+                            <div className="d-flex">Type: <p className="mb-2 ml-2 text-capitalize">{type}</p></div>
+                            <div className="d-flex">Style: <p className="mb-2 ml-2 text-capitalize">{style}</p></div>
+                            <div className="d-flex">From: <p className="mb-2 ml-2">{description}</p></div>
+                            <div className="d-flex"><p>Our<br />Rating:</p><div className="beer__content_star d-flex mb-2 ml-2">{starRating}<p>{rating}</p></div></div>
+                            <div className="d-flex"><p>Average<br />Rating:</p><div className="beer__content_star d-flex mb-2 ml-2">{custStar.avgCustStarRating}<p>{custStar.avgCustomerRating}</p></div></div>
+                            <div className="d-flex">Our<br />Comment:<p className="mb-2 ml-2 text-capitalize">{comment}</p></div>
+                            <div className="d-flex">Description:<p className="mb-2 ml-2 text-capitalize">{bio}</p></div>
+                        </div>
+                    </div>
+                    <div className="beer__comments">
+                        {(!isEmpty(mapComments)) ? mapComments : <p>No Comments</p>}
+                    </div>
+                    <div className="beer__comment-form">
+                        {empty && <p className="text-danger">Please fill out all fields</p>}
+                        <form onSubmit={handleFormSubmit}>
+                            <div className="form-group">
+                                <input type="text"
+                                    className="form-control"
+                                    placeholder="Name" name="Name"
+                                    onChange={(e) => setFormName(e.target.value)}
+                                    value={formName}
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <textarea type="text"
+                                    className="form-control"
+                                    maxLength='500'
+                                    placeholder="What do you think?"
+                                    name="Comment"
+                                    onChange={(e) => setFormComment(e.target.value)}
+                                    value={formComment} style={{ minHeight: '150px' }}
+                                />
+                            </div>
+                            <div className="beer__footer">
+                                <p>Rating</p>
+                                <div className="beer__footer_star"><StarRating itemId={_id} setError={() => setError(true)} /></div>
+                                <button type="submit" className='btn btn-primary btn-block'>
+                                    {loading && <span className="spinner-border spinner-border-sm mb-1" role="status" aria-hidden="true"></span>}
+                                        Submit
+                                        </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

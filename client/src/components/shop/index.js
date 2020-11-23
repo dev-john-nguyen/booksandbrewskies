@@ -1,7 +1,7 @@
 import React from 'react';
 
-// import Shelf from './components/shelf';
-// import Filter from './components/shelf/components/Filter';
+import Shelf from './components/shelf';
+import Filter from './components/shelf/components/Filter';
 
 class Shop extends React.Component {
 
@@ -12,26 +12,23 @@ class Shop extends React.Component {
   render() {
 
     return (
-      <React.Fragment>
-        {/* <Filter /> */}
+      <div className="store">
+        <Filter />
         {/* <div className="alert alert-warning alert-dismissible fade show text-center" role="alert">
           <strong>None of the items are for purchase. This is only for testing purposes.</strong>
           <button type="button" className="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div className='row mt-6 d-block text-center mb-6' style={titleStyle}>
-          <h1>Store</h1>
-        </div>
-        <div className="row m-auto d-block">
-          <Shelf />
         </div> */}
-    <div className="row justify-content-center align-items-center m-auto" style={{height: '70vh'}}>
-        <div className="col text-center">
-            <h1 className="">Store Coming Soon!</h1>
+        <div className='store__header'>
+          <div className="store__text">
+            <h1>Store</h1>
+          </div>
         </div>
-    </div>
-      </React.Fragment>
+        <div className="store__shelf">
+          <Shelf />
+        </div>
+      </div>
     )
   }
 };

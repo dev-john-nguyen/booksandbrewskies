@@ -11,68 +11,63 @@ import './css/style.scss';
 
 class FloatCart extends Component {
   static propTypes = {
-     loadCart: PropTypes.func.isRequired,
-     updateCart: PropTypes.func.isRequired,
-     cartProducts: PropTypes.array.isRequired,
-     newProduct: PropTypes.object,
-     removeProduct: PropTypes.func,
-     productToRemove: PropTypes.object,
-     changeProductQuantity: PropTypes.func,
-     productToChange: PropTypes.object
-   };
+    loadCart: PropTypes.func.isRequired,
+    updateCart: PropTypes.func.isRequired,
+    cartProducts: PropTypes.array.isRequired,
+    newProduct: PropTypes.object,
+    removeProduct: PropTypes.func,
+    productToRemove: PropTypes.object,
+    changeProductQuantity: PropTypes.func,
+    productToChange: PropTypes.object
+  };
 
-   constructor(props){
-     super(props);
+  constructor(props) {
+    super(props);
 
-     const {cartProducts, cartTotal} = props;
-     const sessionStorage = getSessionStorageUpdateCart(cartProducts, cartTotal);
-     let isOpenInit = false;
+    const { cartProducts, cartTotal } = props;
+    getSessionStorageUpdateCart(cartProducts, cartTotal);
 
-     if(sessionStorage){
-      isOpenInit = true;
-     }
-
-     this.state = {
+    this.state = {
       newProduct: this.props.newProduct,
       productToChange: this.props.productToChange,
       productToRemove: this.props.productToRemove,
-      isOpen: isOpenInit
+      isOpen: false
     };
-   }
+  }
 
-   static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
 
-     if (nextProps.newProduct !== prevState.newProduct) {
-       return { newProduct : nextProps.newProduct }
-     }
+    if (nextProps.newProduct !== prevState.newProduct) {
+      return { newProduct: nextProps.newProduct }
+    }
 
-     if(nextProps.productToRemove !== prevState.productToRemove){
-       return { productToRemove: nextProps.productToRemove };
-     }
+    if (nextProps.productToRemove !== prevState.productToRemove) {
+      return { productToRemove: nextProps.productToRemove };
+    }
 
-     if (nextProps.productToChange !== prevState.productToChange) {
-       return { productToChange: nextProps.productToChange };
-     }
-     return null;
-   }
+    if (nextProps.productToChange !== prevState.productToChange) {
+      return { productToChange: nextProps.productToChange };
+    }
+    return null;
+  }
 
-   componentDidUpdate(prevProps, prevState){
-     if(prevState.newProduct !== this.state.newProduct){
-       this.addProduct(this.state.newProduct);
-     }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.newProduct !== this.state.newProduct) {
+      this.addProduct(this.state.newProduct);
+    }
 
-     if (prevState.productToRemove !== this.state.productToRemove) {
-       this.removeProduct(this.state.productToRemove);
-     }
+    if (prevState.productToRemove !== this.state.productToRemove) {
+      this.removeProduct(this.state.productToRemove);
+    }
 
-     if (prevState.productToChange !== this.state.productToChange) {
-       this.changeProductQuantity(this.state.productToChange);
-     }
+    if (prevState.productToChange !== this.state.productToChange) {
+      this.changeProductQuantity(this.state.productToChange);
+    }
 
-     const {cartProducts, cartTotal} = this.props;
-     updateSessionStorage(cartProducts, cartTotal);
+    const { cartProducts, cartTotal } = this.props;
+    updateSessionStorage(cartProducts, cartTotal);
 
-   }
+  }
 
   openFloatCart = () => {
     this.setState({ isOpen: true });
@@ -187,7 +182,7 @@ class FloatCart extends Component {
                 )}`}
               </p>
             </div>
-            <Link to="/store/checkout" className="btn btn-primary mt-5 btn-lg btn-block" onClick={this.openFloatCart}>Checkout</Link>
+            <Link to="/store/checkout" className="btn btn-primary mt-5 btn-lg btn-block" onClick={this.closeFloatCart}>Checkout</Link>
           </div>
         </div>
       </div>
@@ -205,5 +200,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {loadCart, updateCart, removeProduct, changeProductQuantity }
+  { loadCart, updateCart, removeProduct, changeProductQuantity, getSessionStorageUpdateCart }
 )(FloatCart);

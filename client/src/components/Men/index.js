@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UploadBB from './UploadBB';
-import Modal from '../Modal';
+import NotFoundPage from '../NotFoundPage';
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import Spinner from '../spinner';
@@ -26,7 +26,7 @@ const Men = () => {
                 response = await axios.get('/men/reviews/get')
             } catch (e) {
                 console.log(e)
-                setError(true)
+                return setError(true)
             }
 
             console.log('fetching...')
@@ -63,17 +63,7 @@ const Men = () => {
         </form>
     )
 
-    if (error) return (
-        <Modal
-            showValue={true}
-            closeDirect='/'
-            buttonName='Close'
-            title='Error'
-            description='Failed to get reviews'
-            svgType="error"
-            handleState={() => setError(false)}
-        />
-    )
+    if (error) return <NotFoundPage text='Oops! Something Happened' body='Sorry, looks like it failed to retrieve the items' />
 
     if (loading) return <Spinner />;
 
@@ -86,8 +76,8 @@ const Men = () => {
 
     const svgPlus = (
         <svg width="5em" height="5em" viewBox="0 0 16 16" className="bi bi-plus" fill="white" xmlns="http://www.w3.org/2000/svg">
-  <path fillRule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg>
+            <path fillRule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
     )
 
 
@@ -111,17 +101,17 @@ const Men = () => {
     mapReviews.reverse();
 
     return (
-        <div className="pt-6 pb-6" style={{ color: '#332212', backgroundColor: '#fff' }}>
-            <div className='container'>
-                <div className='row mb-3'>
-                    <div className='col text-center'>
+        <>
+            {!isEmpty(editItem) && <EditItem editItem={editItem} handleClose={() => setEditItem('')} />}
+            {showUploadBB && <UploadBB handleClose={() => setShowUploadBB(false)} />}
+            <div className='admin'>
+                <div className='admin__header'>
+                    <div className="admin__text">
                         <h1>Make Changes</h1>
                     </div>
                 </div>
-                {!isEmpty(editItem) && <EditItem editItem={editItem} handleClose={() => setEditItem('')} />}
-                {showUploadBB && <UploadBB handleClose={() => setShowUploadBB(false)}/>}
                 {isEmpty(reviews) ? <div>Loading...</div> :
-                    <div className="row m-auto d-flex justify-content-between bb-item-container" style={{ flexWrap: 'wrap' }}>
+                    <div className="admin__items">
                         <div className="men-reviews m-3 p-2 d-flex align-items-center flex-column" style={{ width: '220px' }}>
                             <div className="men-a" style={{ position: 'relative' }} onClick={() => setShowUploadBB(true)}>
                                 <div className='men-edit'>
@@ -133,8 +123,8 @@ const Men = () => {
                                     background: '#eabf00',
                                     margin: 'auto',
                                     position: 'relative'
-                                }}> 
-                                <div style={{ position: 'absolute', left: '30%', top: '35%'}}>{svgPlus}</div>
+                                }}>
+                                    <div style={{ position: 'absolute', left: '30%', top: '35%' }}>{svgPlus}</div>
                                 </div>
                             </div>
                             <div className="item-content mt-4">
@@ -146,7 +136,7 @@ const Men = () => {
                     </div>
                 }
             </div>
-        </div>
+        </>
     )
 }
 

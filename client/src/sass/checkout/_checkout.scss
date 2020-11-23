@@ -1,0 +1,73 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    font-family: $font-secondary;
+    font-size: 1.2rem;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color-primary-dark, 1);
+        background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.1) 100%), url('../../components/images/home/studio.jpg');
+        color: #fff;
+        min-height: 45vh;
+    }
+
+    &__text {
+        display: block;
+
+        h1 {
+            font-family: $font-primary;
+            font-size: 5rem;
+            font-weight: $font-weight-h1;
+            display: inline;
+            color: #fff;
+            @include highlight-text;
+        }
+    }
+
+    &__form {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        max-width: 600px;
+        min-width: 315px;
+        margin: 10rem;
+    }
+}
+
+.form {
+    box-shadow: $box-shadow-primary;
+    padding: 2rem;
+    font-family: $font-secondary;
+    font-size: 1.2rem;
+    position: relative;
+
+    &__header {
+        display: flex;
+        align-self: center;
+        width: 7rem;
+    }
+
+    &__close {
+        font-size: 1.5rem;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        font-size: 1.5rem;
+
+        & button {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+}

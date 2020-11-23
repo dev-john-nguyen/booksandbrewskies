@@ -1,22 +1,18 @@
 import React from 'react';
 import { formatPrice } from '../../util';
 
-const CartSectionProduct = ({title, style, price, quantity}) => {
+const CartSectionProduct = ({ title, style, price, quantity }) => {
   return (
-    <li className="list-group-item d-flex justify-content-between lh-condensed">
-        <div>
-          <div className="row">
-            <h6 className="my-0">{title}</h6>
-          </div>
-          <div className="row">
-            <small className="text-muted">{style}</small>
-          </div>
-        </div>
-          <div className="row" style={{display: "block"}}>
-            <span className="badge badge-secondary badge-pill">{quantity}</span>
-            <span className="text-muted ml-1">${formatPrice(price)}</span>
-          </div>
-      </li>
+    <li className="list-group-item">
+      <div>
+        <h6 className="my-0">{title}</h6>
+        <small className="text-muted">{style}</small>
+      </div>
+      <div className="item-price" style={{ display: "block" }}>
+        <span className="badge badge-secondary badge-pill">{quantity}</span>
+        <span className="text-muted ml-1">${formatPrice(price)}</span>
+      </div>
+    </li>
   )
 }
 

@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch:sass": "node-sass sass/main.scss client/src/css/style.css -w",
     "test": "node app.js",
     "server": "nodemon app.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --browser=firefox --prefix client",
+    "dev": "npm-run-all --parallel server client",
     "test-server": "NODE_ENV=test nodemon app.js"
   },
   "author": "booksandbrewskies@gmail.com",
@@ -21,7 +22,9 @@
     "heroku-ssl-redirect": "0.0.4",
     "mongoose": "^5.8.11",
     "multer": "^1.4.2",
+    "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
     "sharp": "^0.25.2",
     "stripe": "^8.19.0"
   }

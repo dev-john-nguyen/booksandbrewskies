@@ -42,7 +42,7 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <div className="filters">
+      <div className="store__filters filters">
         <h4 className="title">Sizes:</h4>
         {this.createCheckboxes()}
       </div>

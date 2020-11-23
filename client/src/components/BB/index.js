@@ -1,7 +1,7 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
 import axios from 'axios';
-import Modal from '../Modal';
+import NotFoundPage from '../NotFoundPage';
 import Spinner from '../spinner';
 import { handleStarRating } from './utils';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,7 @@ class BB extends React.Component {
     componentDidMount = async () => {
 
         window.scrollTo(0, 0);
-        
+
         let reviewItems;
 
         try {
@@ -59,32 +59,9 @@ class BB extends React.Component {
 
         if (this.state.loading) return <Spinner />;
 
-        if (this.state.error) {
-            return (
-                <Modal
-                    showValue={true}
-                    closeDirect='/'
-                    buttonName='Close'
-                    title='Error'
-                    description='Sorry, we are undergoing maintenance. Check back again later.'
-                    svgType="error"
-                />
-            )
-        }
+        if (this.state.error) return <NotFoundPage text="Oops! Something Happened" body="Sorry, we are undergoing maintenance. Check back again later." />
 
-        if (isEmpty(this.state.reviewItems)) {
-            return (
-                <Modal
-                    showValue={true}
-                    closeDirect='/'
-                    buttonName='Close'
-                    title='Empty'
-                    description="We currently don't have any items. Check back again later."
-                    svgType="empty"
-                />
-            )
-
-        }
+        if (isEmpty(this.state.reviewItems)) return <NotFoundPage text="Empty" body="Looks like we weren't able to find any items. Please come back later." />
 
         const review = this.state.reviewItems.filter((item) => {
             if (this.state.filterBB === 'all') {
@@ -112,29 +89,28 @@ class BB extends React.Component {
             const custRating = handleStarRating(item.ratings);
 
             return (
-                <div className="bb-item m-3 p-2 d-flex align-items-center flex-column" style={{ width: '220px' }} key={index}>
+                <div className="reviews__item" key={index}>
                     <Link to={`/bb/${item._id}`}>
-                        <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
+                        <img className="reviews__item__img" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
                     </Link>
-                    <div className="item-content mt-4">
+                    <div className="reviews__item__content">
                         <h3>{item.name}</h3>
                         <p>From: {item.description}</p>
-                        <div className="d-flex">
+                        <div className="reviews__item__rating">
                             <p>Our<br />Rating:</p>
-                            <div className="star d-flex ml-1">
+                            <div className="reviews__item__stars">
                                 {starRating}
                                 <div>{item.myReview.rating}</div>
                             </div>
                         </div>
-                        <div className="cust-avg-rating d-flex">
+                        <div className="reviews__item__average">
                             <p>Average<br />rating:</p>
-                            <div className="star ml-1 d-flex">{custRating.avgCustStarRating}{custRating.avgCustomerRating}</div></div>
+                            <div className="reviews__item__stars">
+                                {custRating.avgCustStarRating}
+                                <p>{custRating.avgCustomerRating}</p>
+                            </div>
+                        </div>
                     </div>
-                    <Link
-                        to={`/bb/${item._id}`}
-                        className="view-more mt-auto p-2">
-                        View
-                    </Link>
                 </div>
             )
         })
@@ -162,66 +138,72 @@ class BB extends React.Component {
                     }
                 }
             }
- 
+
             const custRating = handleStarRating(item.ratings);
 
             return (
-                <div className="col" style={{ width: '220px', maxWidth: '600px', margin: 'auto' }} key={index}>
-                    <h1 className="text-center mb-4" style={{fontSize: '3rem'}}>{item.type === 'book' ? 'Book Of The Month': 'Beer Of The Week'}</h1>
-                    <div className="recent-review-content p-2">
-                        <Link to={`/bb/${item._id}`}>
-                            <img className="img-fluid rounded shadow" src={item.imageUrl} alt={item.name} width='250' height='350' key={index} style={{ height: '350px' }} />
-                        </Link>
-                        <div className="item-content mt-4">
-                            <h3>{item.name}</h3>
-                            <p>From: {item.description}</p>
-                            <div className="d-flex">
-                                <p>Our<br />Rating:</p>
-                                <div className="star d-flex ml-1">
-                                    {starRating}
-                                    <div>{item.myReview.rating}</div>
-                                </div>
+                <div className="reviews__item" key={index}>
+                    <h1 className="reviews__item__h1">{item.type === 'book' ? 'Book Of The Month' : 'Beer Of The Week'}</h1>
+                    <Link to={`/bb/${item._id}`}>
+                        <img className="reviews__item__img" src={item.imageUrl} alt={item.name} width='250' height='350' />
+                    </Link>
+                    <div className="reviews__item__content">
+                        <h3>{item.name}</h3>
+                        <p>From: {item.description}</p>
+                        <div className="reviews__item__rating">
+                            <p>Our<br />Rating:</p>
+                            <div className="reviews__item__stars">
+                                {starRating}
+                                <p>{item.myReview.rating}</p>
                             </div>
-                            <div className="cust-avg-rating d-flex">
-                                <p>Average<br />rating:</p>
-                                <div className="star ml-1 d-flex">{custRating.avgCustStarRating}{custRating.avgCustomerRating}</div></div>
+                        </div>
+                        <div className="reviews__item__average">
+                            <p>Average<br />rating:</p>
+                            <div className="reviews__item__stars">
+                                {custRating.avgCustStarRating}
+                                <p>{custRating.avgCustomerRating}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             )
         })
+
+        const handleFilterButtonClass = (name) => {
+            var base = "reviews__filter__button";
+            if (name === this.state.filterBB) {
+                return base + ' active'
+            } else {
+                return base;
+            }
+        }
+
         return (
             <>
-                <div className="row m-auto align-items-center vh-100 text-center" style={{ minHeight: '510px' }}>
-                    <div className="col align-self-center">
-                        <h1 className="display-4 font-weight-normal header-title animated jackInTheBox">The Books and Beers Gallery</h1>
-                        <p className="lead">A new beer every week and a new book every month!</p>
-                        <div>
+                <div className="reviews">
+                    <div className="reviews__header">
+                        <div className="reviews__text">
+                            <h1>Reviews</h1>
                         </div>
                     </div>
-                </div>
-                <div id="chevron-attraction" />
-                <div className="pt-6 pb-6" style={{ color: '#332212', backgroundColor: '#fff' }}>
-                    <div className="row mb-5 ml-auto mr-auto">
+                    <div className="reviews__recent">
                         {recentReviews}
                     </div>
-                    <div className="row mb-5 ml-auto mr-auto">
-                        <div className="btn-group btn-group-toggle m-auto w-50" data-toggle="buttons" style={{ minWidth: '300px' }}>
-                            <label className="btn btn-secondary">
-                                <input type="radio" name="book" id="book" autoComplete="off" onClick={() => this.setState({ filterBB: 'book' })} />
-                            Books
-                        </label>
-                            <label className="btn btn-secondary active">
-                                <input type="radio" name="all" id="all" autoComplete="off" onClick={() => this.setState({ filterBB: 'all' })} defaultChecked />
-                            All
-                         </label>
-                            <label className="btn btn-secondary">
-                                <input type="radio" name="beer" id="beer" autoComplete="off" onClick={() => this.setState({ filterBB: 'beer' })} />
-                            Beers
-                        </label>
+                    <div className="reviews__filter">
+                        <div className="reviews__filter__content" data-toggle="buttons">
+                            <p>Filter :</p>
+                            <button className={handleFilterButtonClass('book')} onClick={() => this.setState({ filterBB: 'book' })}>
+                                Books
+                        </button>
+                            <button className={handleFilterButtonClass('all')} onClick={() => this.setState({ filterBB: 'all' })}>
+                                All
+                         </button>
+                            <button className={handleFilterButtonClass('beer')} onClick={() => this.setState({ filterBB: 'beer' })}>
+                                Beers
+                        </button>
                         </div>
                     </div>
-                    <div className="row m-auto d-flex justify-content-between bb-item-container" style={{ flexWrap: 'wrap' }}>
+                    <div className="reviews__items">
                         {review}
                     </div>
                 </div>

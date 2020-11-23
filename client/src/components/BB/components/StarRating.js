@@ -16,9 +16,9 @@ class StarRating extends React.Component {
 
         const { itemId, setError } = this.props;
 
-        insert_rating(e.target.name, itemId)
+        insert_rating(e.currentTarget.name, itemId)
             .then((obj) => {
-                if(obj.err) return setError();
+                if (obj.err) return setError();
                 this.setState({ rating: obj.rating });
             })
             .catch((e) => {
@@ -61,8 +61,8 @@ class StarRating extends React.Component {
                         key={itemId + i}
                         name={i}
                         onClick={this.handleOnClick}
-                        onMouseOver={(e) => this.setState({ hover: e.target.name })}
-                        style={this.state.hover > i ? { color: '#eabf00' } : {}}
+                        onMouseOver={(e) => this.setState({ hover: parseInt(e.currentTarget.name) })}
+                        style={this.state.hover >= i ? { color: '#eabf00' } : {}}
                     >
                         {starSvg}
                     </a>
@@ -72,16 +72,16 @@ class StarRating extends React.Component {
 
             for (let i = 1; i < 6; i++) {
                 if (this.state.rating >= i) {
-                    starArray.push(<p className="p-1 mb-0" key={itemId + i}>{fullStarSvg}</p>);
+                    starArray.push(<p className="p-1 mb-0 rated" key={itemId + i}>{fullStarSvg}</p>);
                 } else {
-                    starArray.push(<p className="p-1 mb-0" key={itemId + i}>{starSvg}</p>);
+                    starArray.push(<p className="p-1 mb-0 rated" key={itemId + i}>{starSvg}</p>);
                 }
             }
 
         }
 
         return (
-            <div className="star d-flex user-star-rating m-auto" onMouseLeave={() => this.setState({ hover: 0 })} style={{ width: 'fit-content', fontSize: '1.5rem' }}>
+            <div className="star d-flex user-star-rating" onMouseLeave={() => this.setState({ hover: 0 })}>
                 {starArray}
                 {this.state.rating !== 0 && checkMark}
             </div>

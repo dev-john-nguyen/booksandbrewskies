@@ -1,0 +1,47 @@
+.acknowledge {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: min-content;
+    font-family: $font-secondary;
+    padding: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-primary-dark;
+    opacity: .9;  
+    color: $color-white;  
+
+    flex-wrap: wrap;
+
+    & > * {
+        font-family: inherit;
+    } 
+
+    &__header {
+        margin: 1rem;
+        flex-basis: 80%;
+        
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__button {
+        margin: 1rem;
+        button {
+            font-family: inherit;
+            color: $color-secondary;
+            width: 20rem;
+            font-size: 1.5rem;
+            padding: 1rem;
+            @include button-base;
+        }
+    }
+}

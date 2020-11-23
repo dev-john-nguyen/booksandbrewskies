@@ -17,16 +17,16 @@
         flex-direction: column;
         background-image: linear-gradient(105deg,rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.1) 100%), url('../../components/images/home/studio.jpg');
         overflow: hidden;
-        overflow-y: scroll;
         flex-wrap: nowrap;
+        transition: all .5s;
 
         &__mobile-show {
-            max-height: 80vh;
+            height: 300px;
             border-bottom: 2px solid $color-secondary;
         }
 
         &__mobile {
-            max-height: 70px;
+            height: 70px;
         }
 
 
@@ -84,9 +84,9 @@
 
             @media only screen and (max-width: $bp-medium) {
                 position: relative;
-                top: -10px;
-                width: 5.5rem;
-                height: 5.5rem;
+                top: -14px;
+                width: 6rem;
+                height: 6rem;
                 margin-right: 0;
             }
             
@@ -100,6 +100,8 @@
                 font-size: 2.5rem;
                 display: flex;
                 flex-direction: column;
+                position: absolute;
+                top: 100px;
 
                 & > *:not(:first-child){
                     margin-top: 2rem;
@@ -174,8 +176,10 @@
 
         @media only screen and (max-width: $bp-medium) {
             margin-right: 0;
-            margin-top: 3rem;
             align-self: center;
+
+            position: absolute;
+            top: 250px;
         }
 
 

@@ -33,9 +33,9 @@ const Navbar = ({ pathname }) => {
   return (
     <nav className={`navbar ${showNav ? 'navbar__mobile-show' : 'navbar__mobile'} ${renderBackground()}`} >
       <div className='navbar__nav nav'>
+        <i className={`navbar__view ${showNav ? 'navbar__view__active' : ''}`} onClick={() => setShowNav(showNav ? false : true)}></i>
         <Link to='/' className="navbar__nav__logo" aria-label="Home"><img src={Logo} alt="logo" height='100%' width='100%' /></Link>
         <ul className="navbar__nav__menu">
-          <i className={`navbar__view ${showNav ? 'navbar__view__active' : ''}`} onClick={() => setShowNav(showNav ? false : true)}></i>
           <Link className="navbar__nav__menu__link" to="/" onClick={() => setShowNav(showNav ? false : true)}>
             <li className="navbar__nav__menu__list">
               Home

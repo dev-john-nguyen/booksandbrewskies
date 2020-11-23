@@ -236,26 +236,26 @@
                 transition: all .2s;
 
                 @media only screen and (max-width: $bp-medium) {
-                    padding: 18.2rem 3rem;
+                    padding: 18.2rem 4rem;
                 }
 
                 @media only screen and (max-width: $bp-smallest) {
-                    transform: translateX(7rem);
+                    transform: translate(7rem, 7rem);
                 }
 
-                &:hover {
+                &:hover, &:active, &:focus {
                     z-index: 2;
                     transform: translateY(-1rem);
                     box-shadow: $box-shadow-dark;
 
+                    &__content{
+                        opacity: 1;
+                        transform: translateY(-1rem);
+                    }
+
                     @media only screen and (max-width: $bp-smallest) {
                         transform: translate(0, 0);
                     }
-                }
-
-                &:hover &__content{
-                    opacity: 1;
-                    transform: translateY(-1rem);
                 }
 
             }
@@ -278,18 +278,18 @@
             }
 
 
-                &:hover { 
+                &:hover, &:focus, &:active { 
                     transform:  translate(10rem, 4rem);
                     box-shadow: $box-shadow-dark;
 
                     @media only screen and (max-width: $bp-smallest) {
                         transform: translate(0, 0);
                     }
-                }
 
-                &:hover &__content{
-                    opacity: 1;
-                    transform: translateY(-1rem);
+                    &__content{
+                        opacity: 1;
+                        transform: translateY(-1rem);
+                    }
                 }
             }
 
@@ -367,6 +367,11 @@
         align-items: center;
         @include content-text-style;
         padding: 5rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+            padding: 0rem;
+            margin-bottom: 5rem;
+        }
     }
 
     &__product {

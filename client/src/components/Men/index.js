@@ -50,17 +50,21 @@ const Men = () => {
     }
 
     if (!login[0]) return (
-        <form onSubmit={handleLogin} style={{
-            position: "fixed",
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '320px'
-        }}>
-            <h1 className="text-center">Only Men</h1>
-            <input type="password" className="form-control mt-4" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button type="submit" className="btn btn-primary btn-block mt-4">Login</button>
-        </form>
+        <div className='admin'>
+            <div className='admin__login'>
+                <form onSubmit={handleLogin} style={{
+                    position: "fixed",
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '320px'
+                }}>
+                    <h1 className="text-center">Only Men</h1>
+                    <input type="password" className="form-control mt-4" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button type="submit" className="btn btn-primary btn-block mt-4">Login</button>
+                </form>
+            </div>
+        </div>
     )
 
     if (error) return <NotFoundPage text='Oops! Something Happened' body='Sorry, looks like it failed to retrieve the items' />

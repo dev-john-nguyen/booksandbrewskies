@@ -78,10 +78,5 @@ const port = process.env.PORT || 5050;
 
 
 app.listen(port, function () {
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
   console.log("Server Started on port 5050");
 });

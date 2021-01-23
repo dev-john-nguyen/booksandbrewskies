@@ -2,11 +2,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const sslRedirect = require('heroku-ssl-redirect');
 const mongoose = require('mongoose');
 const path = require('path');
-
-app.use(sslRedirect());
 
 // q22Q2dIB0ApxErbM
 //
@@ -66,15 +63,15 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-if (process.env.NODE_ENV.trim() === 'test') {
-  console.log("Testing Environment");
-  //set static folder
-  app.use(express.static('client/build'));
+// if (process.env.NODE_ENV.trim() === 'test') {
+//   console.log("Testing Environment");
+//   //set static folder
+//   app.use(express.static('client/build'));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
 
 
 const port = process.env.PORT || 5050;

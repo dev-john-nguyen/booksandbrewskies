@@ -413,12 +413,12 @@
 .contact {
     grid-column: 2 / 6;
     grid-row: 6 / 7;
-    background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 52%, transparent 52%), url('https://www.booksandbrewskies.com/media/contact-background.jpg');
+    background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 52%, transparent 52%), url('../../components/images/contact-background.jpg');
     background-size: auto;
     border-radius: .25rem;
 
     @media only screen and (max-width: $bp-medium) {
-        background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 100%), url('https://www.booksandbrewskies.com/media/contact-background.jpg');
+        background-image: linear-gradient(105deg, rgba(51, 34, 18, 0.9) 0%, rgba(51, 34, 18, 0.9) 100%), url('../../components/images/contact-background.jpg');
     }
 
     @media only screen and (max-width: $bp-smallest) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import MyModal from '../Modal';
-import { Modal } from 'react-bootstrap';
 
 class UploadBB extends React.Component {
     constructor(props) {

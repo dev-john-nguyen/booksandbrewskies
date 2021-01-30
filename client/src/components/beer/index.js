@@ -128,7 +128,7 @@ const Beer = ({ match }) => {
                 <div className="beer__content">
                     <div className="beer__content__section">
                         <div className="beer__content__img" >
-                            <img src={imageUrl} className="img-fluid rounded shadow" alt="item" style={{
+                            <img src={`../${imageUrl}`} className="img-fluid rounded shadow" alt="item" style={{
                                 width: '400px',
                                 height: '505px'
                             }} />
